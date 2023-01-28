@@ -8,7 +8,7 @@ const Welcome =() => {
                 welcome to Mentorsboard!
             </Title>
             <Subtitle>
-                This is the place where you found your mentor.
+                This is the place where you can find your mentor.
             </Subtitle>
         </>
     );
