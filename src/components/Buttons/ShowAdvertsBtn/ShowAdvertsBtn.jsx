@@ -1,8 +1,12 @@
+import { useAllAdvertsMutation } from "../../../redux/slices/mentorsboardApi";
 import { ShowMentors } from "./ShowAdvertsBtn.styled";
 
 const ShowAdvertsBtn = () => {
+
+    const [ allAdverts ] = useAllAdvertsMutation;
+
     return (
-        <ShowMentors>Show Mentors</ShowMentors>
+        <ShowMentors onClick={ allAdverts() }>Show Mentors</ShowMentors>
     ) 
 }
 

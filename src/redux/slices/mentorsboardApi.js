@@ -39,7 +39,7 @@ export const mentorsboardApi = createApi({
     }),
     allAdverts: builder.mutation({
       query: () => ({
-        url: "/all/",
+        url: "/all",
         method:"GET",
       }),
       invalidatesTagsTags: ["All"],
@@ -68,7 +68,7 @@ export const mentorsboardApi = createApi({
       invalidatesTags: ["Adverts"],
     }),
     getAllUserAdverts: builder.query({
-      query: () => "/card",
+      query: () => "/adverts",
       providesTags: ["User", "Adverts"],
     }),
   }),
@@ -78,6 +78,7 @@ export const {
 	useRegisterMutation,
 	useLoginMutation,
 	useLogoutMutation,
+  useAllAdvertsMutation,
 	useCreateAdvertMutation,
 	useEditAdvertMutation,
 	useDeleteAdvertMutation,
