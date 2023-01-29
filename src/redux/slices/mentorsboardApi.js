@@ -12,7 +12,7 @@ export const mentorsboardApi = createApi({
       return headers;
     },
   }),
-  tagTypes: ["User", "Adverts"],
+  tagTypes: ["User", "Adverts", "All"],
   endpoints: (builder) => ({
     register: builder.mutation({
       query: (newUserData) => ({
@@ -36,6 +36,13 @@ export const mentorsboardApi = createApi({
         method: "POST",
       }),
       invalidatesTags: ["User"],
+    }),
+    allAdverts: builder.mutation({
+      query: () => ({
+        url: "/all/",
+        method:"GET",
+      }),
+      invalidatesTagsTags: ["All"],
     }),
     createAdvert: builder.mutation({
       query: (advertData) => ({
