@@ -12,7 +12,7 @@ export const mentorsboardApi = createApi({
       return headers;
     },
   }),
-  tagTypes: ["User", "Adverts", "All"],
+  tagTypes: ["User", "Adverts", "Mentor"],
   endpoints: (builder) => ({
     register: builder.mutation({
       query: (newUserData) => ({
@@ -37,39 +37,36 @@ export const mentorsboardApi = createApi({
       }),
       invalidatesTags: ["User"],
     }),
-    allAdverts: builder.mutation({
-      query: () => ({
-        url: "/all",
-        method:"GET",
-      }),
-      invalidatesTagsTags: ["All"],
+    getAllAdverts: builder.query({
+      query: () => "/adverts",
+      providesTags: ["Adverts"],
     }),
     createAdvert: builder.mutation({
       query: (advertData) => ({
-        url: "/adverts",
+        url: "/adverts/mentor",
         method: "POST",
         body: advertData,
       }),
-      invalidatesTags: ["User", "Adverts"],
+      invalidatesTags: ["User", "Adverts", "Mentor"],
     }),
     editAdvert: builder.mutation({
       query: (advertData) => ({
-        url: `/adverts/${advertData.id}`,
+        url: `/adverts/mentor/${advertData.id}`,
         method: "PATCH",
         body: advertData.body,
       }),
-      invalidatesTags: ["User", "Adverts"],
+      invalidatesTags: ["User", "Adverts", "Mentor"],
     }),
     deleteAdvert: builder.mutation({
       query: (id) => ({
         url: `/adverts/${id}`,
         method: "DELETE",
       }),
-      invalidatesTags: ["Adverts"],
+      invalidatesTags: ["Adverts", "Mentor"],
     }),
     getAllUserAdverts: builder.query({
       query: () => "/adverts",
-      providesTags: ["User", "Adverts"],
+      providesTags: ["User", "Adverts", "Mentor"],
     }),
   }),
 });
@@ -78,7 +75,7 @@ export const {
 	useRegisterMutation,
 	useLoginMutation,
 	useLogoutMutation,
-  useAllAdvertsMutation,
+  useGetAllAdvertsQuery,
 	useCreateAdvertMutation,
 	useEditAdvertMutation,
 	useDeleteAdvertMutation,
