@@ -6,7 +6,7 @@ const ShowAdvertsBtn = () => {
     const [ allAdverts ] = useAllAdvertsMutation;
 
     return (
-        <ShowMentors onClick={ allAdverts() }>Show Mentors</ShowMentors>
+        <ShowMentors>Show Mentors</ShowMentors>
     ) 
 }
 
