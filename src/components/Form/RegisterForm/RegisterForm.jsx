@@ -21,15 +21,15 @@ const RegisterForm = ({setIsOpen}) => {
         validationSchema: validationSchema,
         onSubmit:
             async (values) => {
-                await register(values)
+            await register(values)
                 .unwrap()
                 .then((id) => {
-                    resetForm();
+                    resetForm(id);
                     setIsOpen(false);
                     toast.success("Now you can use your credentials to login");
                 })
-                .catch(() => {
-                    toast.warn(`User with ${values.email} already exists`);
+                .catch((error) => {
+                    toast.warn(error && `User with ${values.email} already exists`);
                 });
             },
         });

@@ -4,6 +4,8 @@ const initialState = {
   name: "",
   email: "",
   role: "",
+  id: "",
+  adverts: [],
 };
 
 const userSlice = createSlice({
