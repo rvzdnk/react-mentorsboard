@@ -10,8 +10,7 @@ import validationSchema from "../../../schemas/formValidation";
 import { addToken } from "../../../redux/slices/tokenSlice";
 import { addUser } from "../../../redux/slices/userSlice";
 
-import { Button } from "../../Buttons/Button.styled"
-import { Form, TextInput } from "../Form.styled";
+import { Form, TextInput, SubmitButton } from "../Form.styled";
 
 const LoginForm = ({setIsOpen}) => {
     const [login] = useLoginMutation();
@@ -39,6 +38,7 @@ const LoginForm = ({setIsOpen}) => {
                                 dispatch(addUser({ email, id, adverts }));
                             }
                         }
+
                     )
                     .catch(() => {
                         toast.warn("Please check your email address or password");
@@ -50,6 +50,7 @@ const LoginForm = ({setIsOpen}) => {
                 dispatch(addToken(token));
                 navigate("/");
                 resetForm();
+                setIsOpen(false);
             },
         });
 
@@ -79,9 +80,9 @@ const LoginForm = ({setIsOpen}) => {
                 onChange={handleChange}error={touched.password && Boolean(errors.password)}
                 helperText={touched.password && errors.password}
             />
-            <Button type="submit">
+            <SubmitButton type="submit">
                 Submit
-            </Button>
+            </SubmitButton>
         </Form>
     );
 };

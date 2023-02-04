@@ -4,8 +4,7 @@ import { toast } from "react-toastify";
 import { useRegisterMutation } from "../../../redux/slices/mentorsboardApi";
 import validationSchema from "../../../schemas/formValidation";
 
-import { Button } from "../../Buttons/Button.styled"
-import { Form, TextInput, RadioInput, RadioInputLabel, RadioMarker } from "../Form.styled";
+import { Form, TextInput, RadioInput, RadioInputLabel, RadioMarker, SubmitButton } from "../Form.styled";
 
 const RegisterForm = ({setIsOpen}) => {
     const [register] = useRegisterMutation();
@@ -91,9 +90,9 @@ const RegisterForm = ({setIsOpen}) => {
                     control={<RadioMarker />}
                 />
             </RadioInput>
-            <Button type="submit">
+            <SubmitButton type="submit">
                 Submit
-            </Button>
+            </SubmitButton>
     </Form>
     );
 };

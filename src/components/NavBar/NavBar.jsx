@@ -1,22 +1,16 @@
-import LoginBtn from "../Buttons/LoginBtn/LoginBtn";
-import RegisterBtn from "../Buttons/RegisterBtn/RegisterBtn";
-import {Container, LogoWrapper, Logo, LogoText, ButtonsWrapper } from "./NavBar.styled";
+import RegistrationLink from "./MenuLinks/RegistrationLink/RegistrationLink";
+import LoginLink from "./MenuLinks/LoginLink/LoginLink";
+import Logo from "./Logo/Logo";
+import {Container, MenuWrapper } from "./NavBar.styled";
 
 const NavBar = () => {
     return(
         <Container>
-            <LogoWrapper>
-                <Logo>
-                    M
-                </Logo>
-                <LogoText>
-                    entorsboard
-                </LogoText>
-            </LogoWrapper>
-            <ButtonsWrapper>
-                <RegisterBtn/>
-                <LoginBtn/>
-            </ButtonsWrapper>
+            <Logo/>
+            <MenuWrapper>
+                <RegistrationLink />
+                <LoginLink/>
+            </MenuWrapper>
         </Container>
 
     );

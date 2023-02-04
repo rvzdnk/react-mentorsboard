@@ -1,10 +1,8 @@
 import React from "react";
 
 import RegisterForm from "../../Form/RegisterForm/RegisterForm";
-
-import { Backdrop, Modal, Paragraph, Wrapper, CloseButtonWrapper, FormWrapper } from "../Modal.styled";
-import { CloseButton } from "../../Buttons/Button.styled";
-
+import LoginLink from "../../NavBar/MenuLinks/LoginLink/LoginLink";
+import { Backdrop, Modal, Paragraph, Wrapper, CloseButtonWrapper, FormWrapper, CloseButton, Redirect } from "../Modal.styled";
 
 const RegisterModal = ({setIsOpen}) => {
     return (
@@ -21,6 +19,12 @@ const RegisterModal = ({setIsOpen}) => {
                             <Paragraph> Sign up!</Paragraph>
                             <RegisterForm/>
                         </FormWrapper>
+                        <Redirect>
+                            No account yet?
+                            <LoginLink>
+                                Log in
+                            </LoginLink>
+                        </Redirect>
                     </Modal>
                 </Wrapper>
             </Backdrop>
