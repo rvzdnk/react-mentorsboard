@@ -6,17 +6,22 @@ import LoginForm from "../../Form/LoginForm/LoginForm";
 
 import { Backdrop, Modal, Paragraph, Wrapper, CloseButtonWrapper, FormWrapper, Redirect, CloseButton } from "../Modal.styled";
 
-import RegistrationLink from "../../NavBar/MenuLinks/RegistrationLink/RegistrationLink";
+import { Link } from "../../NavBar/NavBar.styled";
 
+const LoginModal = ({open, setLoginIsOpen, setRegistrationIsOpen}) => {
 
-const LoginModal = ({setIsOpen}) => {
+    const switchRegistration = () => {
+        setRegistrationIsOpen(true);
+        setLoginIsOpen(false);
+    };
+
     return (
         <>
             <Backdrop>
                 <Wrapper>
-                    <Modal>
+                    <Modal isOpen={open}>
                         <CloseButtonWrapper>
-                            <CloseButton onClick={() => setIsOpen(false)}>
+                            <CloseButton onClick={()=>setLoginIsOpen(false)}>
                                 <GrClose/>
                             </CloseButton>
                         </CloseButtonWrapper>
@@ -25,10 +30,10 @@ const LoginModal = ({setIsOpen}) => {
                             <LoginForm/>
                         </FormWrapper>
                         <Redirect>
-                            No account yet? 
-                            <RegistrationLink>
-                                Sign up
-                            </RegistrationLink>
+                            No account yet?
+                            <Link onClick={switchRegistration}>
+                                Sign up!
+                            </Link>
                         </Redirect>
                     </Modal>
                 </Wrapper>
