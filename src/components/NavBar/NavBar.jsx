@@ -1,30 +1,23 @@
-import React, {useState} from "react";
-import LoginModal from "../Modal/LoginModal/LoginModal";
-import RegisterModal from "../Modal/RegisterModal/RegisterModal";
+import React from "react";
+import { useSelector } from "react-redux";
+
 import Logo from "./Logo/Logo";
-import {Container, MenuWrapper } from "./NavBar.styled";
-import { Link } from "./NavBar.styled";
+import { LoginUserMenu } from "./LoginUserMenu/LoginUserMenu";
+import { StartUserMenu } from "./StartUserMenu/StartUserMenu";
+import { Container } from "./NavBar.styled";
+
 
 const NavBar = () => {
-    const [registrationIsOpen, setRegistrationIsOpen] = useState(false);
-    const [loginIsOpen, setLoginIsOpen] = useState(false);
-
-    const handleLogin = () => {setLoginIsOpen(true)};
-    const handleRegistration = () => {setRegistrationIsOpen(true)};
+    const user = useSelector((state) => state.user);
+    const isLoggedIn = user.email;
 
     return(
         <Container>
             <Logo/>
-            <MenuWrapper>
-                <Link onClick={handleRegistration}>
-                    Sign up
-                </Link>
-                {registrationIsOpen && <RegisterModal open={registrationIsOpen} setLoginIsOpen={setLoginIsOpen} setRegistrationIsOpen={setRegistrationIsOpen}/>}
-                <Link onClick={handleLogin}>
-                    Log in
-                </Link>
-                {loginIsOpen && <LoginModal open={loginIsOpen} setLoginIsOpen={setLoginIsOpen} setRegistrationIsOpen={setRegistrationIsOpen}/>}
-            </MenuWrapper>
+            {isLoggedIn
+            ? <LoginUserMenu/>
+            : <StartUserMenu/>
+            }
         </Container>
 
     );
