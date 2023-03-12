@@ -39,11 +39,11 @@ const LoginModal = ({open, setLoginIsOpen, setRegistrationIsOpen}) => {
         .then(
             ({
                 accessToken,
-                userData: { email, id },
+                userData: { email, id, name, role },
             }) => {
                 Cookies.set("token", accessToken);
                 if (accessToken) {
-                    dispatch(addUser({ email, id }));
+                    dispatch(addUser({ email, id, name, role }));
                     toast.success("Success!");
                 }
             }
