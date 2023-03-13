@@ -1,26 +1,28 @@
 import React from "react";
 import AdvertCard from "./AdvertCard/AdvertCard";
+import PageLoader from "../PageLoader/PageLoader"
 import { useGetAllAdvertsQuery } from "../../redux/slices/mentorsboardApi";
-import PageLoader from '../PageLoader/PageLoader';
 import { ListContainer, List, Message } from "./AdvertList.styled";
 
 const AdvertsList = () => {
     const {
-         data:
-            adverts = [],
-            isLoading,
-            isSuccess,
-            isError,
-            error,
+         data: adverts = [],
+         isLoading,
+         isSuccess,
+         isError,
+         error,
         } = useGetAllAdvertsQuery();
+
+    const allAdvertsArray = adverts.allAdverts
+
 
     return(
         <ListContainer>
             {isLoading && <PageLoader />}
             {isSuccess &&
-                (adverts?.length > 0 ? (
+                (allAdvertsArray.length > 0 ? (
                 <List>
-                    {adverts.map(({ author, level, technology, price, id }) => {
+                    {allAdvertsArray.map(({ author, level, technology, price, id }) => {
                         return <AdvertCard
                                     key={id}
                                     id={id}

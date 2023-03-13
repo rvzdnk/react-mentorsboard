@@ -4,6 +4,7 @@ import TextField from "@mui/material/TextField";
 import RadioGroup from "@mui/material/RadioGroup";
 import FormControlLabel from "@mui/material/FormControlLabel";
 import Radio from "@mui/material/Radio";
+import Select from '@mui/material/Select';
 
 export const Backdrop = styled.div`
     background-color: rgba(0, 0, 0, 0.2);
@@ -92,6 +93,10 @@ export const RadioInputLabel = styled(FormControlLabel)`
 `;
 
 export const RadioMarker = styled(Radio)`
+
+`;
+
+export const SelectInput = styled(Select)`
 
 `;
 
