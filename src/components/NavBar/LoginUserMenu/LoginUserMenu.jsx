@@ -1,4 +1,4 @@
-import { useDispatch } from "react-redux";
+import { useDispatch, useSelector } from "react-redux";
 import { useState } from "react";
 import { deleteToken } from "../../../redux/slices/tokenSlice";
 import { deleteUser } from "../../../redux/slices/userSlice";
@@ -24,12 +24,17 @@ export const LoginUserMenu = () => {
         });
       };
 
+    const user = useSelector((state) => state.user);
+    const userRole = user.role;
+
     return (
       <>
       <MenuWrapper>
-        <Link onClick={handleNewAdvert}>
-            Create Advert
-        </Link>
+        {userRole==="Mentor" ?
+          <Link onClick={handleNewAdvert}>
+          Create Advert
+          </Link>
+      :<></>}
         {newAdvertIsOpen && <NewAdvertModal open={newAdvertIsOpen} setNewAdvertIsOpen={setNewAdvertIsOpen}/>}
         <Link onClick={logoutUser}>
             Logout

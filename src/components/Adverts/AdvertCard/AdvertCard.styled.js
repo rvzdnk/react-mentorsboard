@@ -15,11 +15,13 @@ export const CardItem = styled.div`
 `;
 
 export const CardAuthor = styled.h2`
-    font-size: 14px;
+    font-size: 18px;
 `;
 
 export const CardLevel = styled.h2`
     font-size: 12px;
+    display: flex;
+    justify-content: center;
 `;
 
 export const CardPrice = styled.h2`
@@ -27,5 +29,22 @@ export const CardPrice = styled.h2`
 `;
 
 export const CardTechnology = styled.h2`
+    font-size: 16px;
+    display: flex;
+    align-items: center;
+`;
+
+export const IconLevel = styled.div`
     font-size: 14px;
+    color: #EED202;
+    padding: 0 0 0 10px;
+    display: flex;
+    align-items: center;
+`;
+
+export const IconTechnology = styled.div`
+    font-size: 18px;
+    padding: 0 0 0 10px;
+    display: flex;
+    align-items: center;
 `;

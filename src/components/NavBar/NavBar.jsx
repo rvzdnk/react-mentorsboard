@@ -10,7 +10,6 @@ import { Container } from "./NavBar.styled";
 const NavBar = () => {
     const user = useSelector((state) => state.user);
     const isLoggedIn = user.email;
-    console.log(user);
 
     return(
         <Container>

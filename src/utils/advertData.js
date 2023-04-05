@@ -9,11 +9,9 @@ export const advertTechnology = [
     "HTML",
     "Python",
     "CSS",
-    "UX/UI",
     "PHP",
     "Scala",
     "Ruby",
-    "DevOps",
     ".Net",
     "C/C++"
 ]

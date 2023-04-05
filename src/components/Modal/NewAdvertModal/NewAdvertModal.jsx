@@ -34,12 +34,10 @@ export const NewAdvertModal = ({open, setNewAdvertIsOpen}) => {
             toast.success("Success!");
             resetForm();
             setNewAdvertIsOpen(false);
-            console.log(values);
         })
         .catch(() => {
             toast.warn("Please make sure all fields are filled in correctly.");
         });
-        console.log(values);
     },
 })
 
