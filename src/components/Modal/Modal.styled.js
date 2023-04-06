@@ -5,6 +5,10 @@ import RadioGroup from "@mui/material/RadioGroup";
 import FormControlLabel from "@mui/material/FormControlLabel";
 import Radio from "@mui/material/Radio";
 import Select from '@mui/material/Select';
+import Slider from "@mui/material/Slider";
+import Typography from '@mui/material/Typography';
+import InputLabel from '@mui/material/InputLabel';
+
 
 export const Backdrop = styled.div`
     background-color: rgba(0, 0, 0, 0.2);
@@ -41,6 +45,7 @@ export const Paragraph = styled.p`
     color: black;
     font-size: 26px;
     font-weight: bold;
+    margin: 0 0 20px 0;
 `;
 
 export const CloseButtonWrapper= styled.div`
@@ -97,7 +102,15 @@ export const RadioMarker = styled(Radio)`
 `;
 
 export const SelectInput = styled(Select)`
+    width: 140px;
+    height: 40px;
+    margin: 10px 0 10px 0;
+    color: #000000;
 
+`;
+
+export const SliderInput = styled(Slider)`
+    width: 140px;
 `;
 
 export const SubmitButton = styled.button`
@@ -109,7 +122,19 @@ export const SubmitButton = styled.button`
     border-radius: 20px;
     border: 1px solid black;
     box-shadow: 4px 4px 8px 0px rgba(0, 0, 0, 0.9);
-    color: white;
+    color: #fff;
     background-color: black;
 `;
+
+export const InputTitle = styled(Typography)`
+    font-size: 16px;
+    font-weight: bold;
+    color: #000;
+    margin: 10px 0 10px 0;
+`
+
+export const InputPlaceholder = styled(InputLabel)`
+    font-weight: bold;
+    color: black;
+`
 
