@@ -1,5 +1,5 @@
 import Welcome from "./Welcome/Welcome";
-import { Wrapper } from "./Landing.styled";
+import { Wrapper, Container } from "./Landing.styled";
 import AdvertsList from "../Adverts/AdvertsList";
 import NavBar from "../NavBar/NavBar";
 import Cookie from "../Cookie/Cookie";
@@ -7,12 +7,15 @@ import Cookie from "../Cookie/Cookie";
 const Landing = () => {
     return (
         <>
-            <NavBar/>
+        <Container>
+        <NavBar/>
             <Wrapper>
                 <Welcome/>
                 <AdvertsList/>
             </Wrapper>
             <Cookie/>
+        </Container>
+
         </>
     );
 };

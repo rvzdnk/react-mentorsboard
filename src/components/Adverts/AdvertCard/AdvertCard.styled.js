@@ -4,7 +4,8 @@ export const CardItem = styled.div`
     display:flex;
     flex-direction: column;
     justify-content: space-evenly;
-    height: 120px;
+    height: 125px;
+    min-width: 125px;
     align-items: center;
     border: 2px solid black;
     border-radius: 4px;

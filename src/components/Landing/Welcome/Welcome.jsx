@@ -11,7 +11,8 @@ const Welcome =() => {
         <>
             {isLoggedIn ?
                 <Title>
-                    <Hello>Hello {userName}, welcome to Mentorsboard!</Hello>
+                    <Hello>Hello {userName}, </Hello>
+                    welcome to Mentorsboard!
                 </Title>
             :
             <Title>

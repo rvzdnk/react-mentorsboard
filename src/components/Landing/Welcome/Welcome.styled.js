@@ -10,5 +10,6 @@ export const Hello = styled.p`
 
 export const Subtitle = styled.p`
     font-size: 20px;
-    margin: 50px 0 0 0;
+    margin: 20px 0 20px 0;
+    text-align: center;
 `;

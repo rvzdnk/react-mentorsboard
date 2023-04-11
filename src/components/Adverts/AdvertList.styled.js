@@ -1,7 +1,6 @@
 import styled from "styled-components";
 
 export const ListContainer = styled.div`
-    height: 100vw;
     padding: 20px 0 20px 0;
 `;
 

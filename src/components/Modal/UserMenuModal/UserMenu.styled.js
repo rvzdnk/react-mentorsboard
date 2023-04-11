@@ -9,7 +9,6 @@ export const Wrapper = styled.div`
 
 export const Modal = styled.div`
     width: 250px;
-    padding: 20px 10px;
     background: white;
     z-index: 10;
     border-radius: 16px;
@@ -19,6 +18,7 @@ export const Modal = styled.div`
 `;
 
 export const MenuHead = styled.div`
+    margin: 20px 20px;
     &::after {
         position: absolute;
         content: '';
@@ -26,7 +26,7 @@ export const MenuHead = styled.div`
         background: black;
         opacity: 0.1;
         width: 100%;
-        margin: 10px 0 0 -10px;
+        margin: 10px 0 0 -20px;
     }
 `;
 
@@ -41,10 +41,14 @@ export const UserRole = styled.p`
 `;
 
 export const MenuLinkWrapper = styled.div`
-    margin: 20px 0 0 0;
+    display: flex;
+    flex-direction: column;
+    align-content: space-around;
+    margin: 0 0 20px 20px;
 `;
 
 export const MenuLink = styled.span`
+    margin: 10px 0 0 0;
     cursor: pointer;
     font-size: 16px;
     letter-spacing: 0.05em;

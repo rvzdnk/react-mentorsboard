@@ -1,6 +1,11 @@
 import React from "react";
 import { useState } from "react";
-import { useSelector } from "react-redux";
+import { useDispatch, useSelector } from "react-redux";
+import Cookies from "js-cookie";
+
+import { useLogoutMutation } from "../../../redux/slices/mentorsboardApi";
+import { deleteToken } from "../../../redux/slices/tokenSlice";
+import { deleteUser } from "../../../redux/slices/userSlice";
 
 import { NewAdvertModal } from "../NewAdvertModal/NewAdvertModal";
 import { Wrapper, Modal, MenuHead, UserName, UserRole, MenuLink, MenuLinkWrapper } from "./UserMenu.styled";
@@ -13,6 +18,18 @@ export const UserMenuModal = ({open, setUserMenuIsOpen}) => {
     const handleNewAdvert = () => {
         setNewAdvertIsOpen(true);
     };
+
+    const [logout] = useLogoutMutation();
+    const dispatch = useDispatch();
+
+    const logoutUser = async () => {
+        await Cookies.remove("token");
+        await logout().then(() => {
+          dispatch(deleteToken());
+          dispatch(deleteUser());
+        });
+      };
+
 
     const user = useSelector((state) => state.user);
     const userRole = user.role;
@@ -32,11 +49,20 @@ export const UserMenuModal = ({open, setUserMenuIsOpen}) => {
                     </MenuHead>
                     <MenuLinkWrapper>
                         {userRole==="Mentor" ?
-                            <MenuLink onClick={handleNewAdvert}>
-                                Create Advert
-                            </MenuLink>
+                            <>
+                                <MenuLink>
+                                    My Adverts
+                                </MenuLink>
+                                <MenuLink onClick={handleNewAdvert}>
+                                    Create Advert
+                                </MenuLink>
+                            </>
+                            
                         :<></>}
                         {newAdvertIsOpen && <NewAdvertModal newAdvertisOpen={newAdvertIsOpen} setNewAdvertIsOpen={setNewAdvertIsOpen}/>}
+                        <MenuLink onClick={logoutUser}>
+                            Logout
+                        </MenuLink>
                     </MenuLinkWrapper>
 
                 </Modal>
