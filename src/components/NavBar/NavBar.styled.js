@@ -36,3 +36,10 @@ export const Link = styled.span`
             transform: scaleX(1);
         },
 `;
+
+export const UserMenu = styled.span`
+    cursor: pointer;
+    font-size: 18px;
+    letter-spacing: 0.05em;
+    margin: 0 0 0 10px;
+`

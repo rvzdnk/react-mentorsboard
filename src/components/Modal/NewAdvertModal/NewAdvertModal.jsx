@@ -13,7 +13,7 @@ import FormControl from "@mui/material/FormControl";
 import MenuItem from '@mui/material/MenuItem';
 
 
-export const NewAdvertModal = ({open, setNewAdvertIsOpen}) => {
+export const NewAdvertModal = ({newAdvertIsOpen, setNewAdvertIsOpen}) => {
 
     const [createAdvert] = useCreateAdvertMutation();
 
@@ -43,7 +43,7 @@ export const NewAdvertModal = ({open, setNewAdvertIsOpen}) => {
     return (
         <>
             <Wrapper>
-                <Modal isOpen={open}>
+                <Modal isOpen={newAdvertIsOpen}>
                     <CloseButtonWrapper>
                         <CloseButton onClick={()=>setNewAdvertIsOpen(false)}>
                             <GrClose/>

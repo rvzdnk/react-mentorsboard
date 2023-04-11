@@ -32,13 +32,11 @@ export const Modal = styled.div`
     width: 250px;
     padding: 20px 10px;
     background: white;
-    color: white;
     z-index: 10;
     border-radius: 16px;
     box-shadow: 0 5px 20px 0 rgba(0, 0, 0, 0.04);
     display: flex;
     flex-direction: column;
-
 `;
 
 export const Paragraph = styled.p`
