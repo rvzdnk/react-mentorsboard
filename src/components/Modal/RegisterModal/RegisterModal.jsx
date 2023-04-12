@@ -48,7 +48,7 @@ const RegisterModal = ({open, setLoginIsOpen, setRegistrationIsOpen }) => {
                 <Wrapper>
                     <Modal isOpen={open}>
                         <CloseButtonWrapper>
-                            <CloseButton onClick={(e)=>setRegistrationIsOpen(false)}>
+                            <CloseButton onClick={()=>setRegistrationIsOpen(false)}>
                                 X
                             </CloseButton>
                         </CloseButtonWrapper>
@@ -88,7 +88,8 @@ const RegisterModal = ({open, setLoginIsOpen, setRegistrationIsOpen }) => {
                                     label="Password"
                                     type="password"
                                     value={values.password}
-                                    onChange={handleChange}error={touched.password && Boolean(errors.password)}
+                                    onChange={handleChange}
+                                    error={touched.password && Boolean(errors.password)}
                                     helperText={touched.password && errors.password}
                                 />
                                 <RadioInput

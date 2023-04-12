@@ -13,10 +13,9 @@ import FormControl from "@mui/material/FormControl";
 import MenuItem from '@mui/material/MenuItem';
 
 
-export const NewAdvertModal = ({newAdvertIsOpen, setNewAdvertIsOpen}) => {
+export const NewAdvertModal = ({open, setNewAdvertIsOpen }) => {
 
     const [createAdvert] = useCreateAdvertMutation();
-
 
     const { handleSubmit, values, handleChange, resetForm, errors, touched } =
         useFormik({
@@ -43,7 +42,7 @@ export const NewAdvertModal = ({newAdvertIsOpen, setNewAdvertIsOpen}) => {
     return (
         <>
             <Wrapper>
-                <Modal isOpen={newAdvertIsOpen}>
+                <Modal isOpen={open}>
                     <CloseButtonWrapper>
                         <CloseButton onClick={()=>setNewAdvertIsOpen(false)}>
                             <GrClose/>

@@ -1,5 +1,5 @@
 import React from "react";
-import { useState } from "react";
+
 import { useDispatch, useSelector } from "react-redux";
 import Cookies from "js-cookie";
 
@@ -7,17 +7,17 @@ import { useLogoutMutation } from "../../../redux/slices/mentorsboardApi";
 import { deleteToken } from "../../../redux/slices/tokenSlice";
 import { deleteUser } from "../../../redux/slices/userSlice";
 
-import { NewAdvertModal } from "../NewAdvertModal/NewAdvertModal";
 import { Wrapper, Modal, MenuHead, UserName, UserRole, MenuLink, MenuLinkWrapper } from "./UserMenu.styled";
 
 
 
-export const UserMenuModal = ({open, setUserMenuIsOpen}) => {
+export const UserMenuModal = ({open,  setUserMenuIsOpen, setNewAdvertIsOpen}) => {
 
-    const [newAdvertIsOpen, setNewAdvertIsOpen] = useState(false);
-    const handleNewAdvert = () => {
+    const switchToNewAdvert =() => {
         setNewAdvertIsOpen(true);
-    };
+        setUserMenuIsOpen(false);
+    }
+
 
     const [logout] = useLogoutMutation();
     const dispatch = useDispatch();
@@ -53,18 +53,15 @@ export const UserMenuModal = ({open, setUserMenuIsOpen}) => {
                                 <MenuLink>
                                     My Adverts
                                 </MenuLink>
-                                <MenuLink onClick={handleNewAdvert}>
+                                <MenuLink onClick={switchToNewAdvert}>
                                     Create Advert
                                 </MenuLink>
                             </>
-                            
                         :<></>}
-                        {newAdvertIsOpen && <NewAdvertModal newAdvertisOpen={newAdvertIsOpen} setNewAdvertIsOpen={setNewAdvertIsOpen}/>}
                         <MenuLink onClick={logoutUser}>
                             Logout
                         </MenuLink>
                     </MenuLinkWrapper>
-
                 </Modal>
             </Wrapper>
     </>
