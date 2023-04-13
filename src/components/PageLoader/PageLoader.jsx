@@ -18,8 +18,6 @@ const PageLoader = ({
                 radius='12.5'
                 ariaLabel="mutating-dots-loading"
                 wrapperStyle={{
-                    width: "100vw",
-                    height: "100vh",
                     display: "flex",
                     justifyContent: horizontalAlignment,
                     alignItems: verticalAlignment,

@@ -3,6 +3,7 @@ import AdvertCard from "./AdvertCard/AdvertCard";
 import PageLoader from "../PageLoader/PageLoader"
 import { useGetAllAdvertsQuery } from "../../redux/slices/mentorsboardApi";
 import { ListContainer, List, Message } from "./AdvertList.styled";
+import { nanoid } from "@reduxjs/toolkit";
 
 const AdvertsList = () => {
     const {
@@ -13,7 +14,7 @@ const AdvertsList = () => {
          error,
         } = useGetAllAdvertsQuery();
 
-    const allAdvertsArray = adverts.allAdverts
+    const allAdvertsArray = adverts.allAdverts;
 
 
     return(
@@ -24,7 +25,7 @@ const AdvertsList = () => {
                 <List>
                     {allAdvertsArray.map(({ author, level, technology, price, id }) => {
                         return <AdvertCard
-                                    key={id}
+                                    key={nanoid()}
                                     id={id}
                                     author={author}
                                     level={level}

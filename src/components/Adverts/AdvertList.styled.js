@@ -15,4 +15,5 @@ export const List = styled.ul`
 
 export const Message = styled.p`
     font-size: 20px;
+    text-align: center;
 `;
