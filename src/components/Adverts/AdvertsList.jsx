@@ -36,10 +36,10 @@ const AdvertsList = () => {
                         <AdvertsTitle>
                             It's all adverts. Choose the best one.
                         </AdvertsTitle>
-                        <HideUserAdverts onClick={handleShowComponent}>
+                        <AdvertsRedirect onClick={handleShowComponent}>
                             Check your adverts!
                             <TbArrowLeft/>
-                        </HideUserAdverts>
+                        </AdvertsRedirect>
                     </AdvertsBar>
                     <List>
                         {allAdvertsArray.map(({ author, level, technology, price, id }) => {
