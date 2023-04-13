@@ -1,11 +1,22 @@
 import React from "react";
+import { useDispatch } from "react-redux";
 import AdvertCard from "../AdvertCard/AdvertCard";
 import PageLoader from "../../PageLoader/PageLoader";
+import { hideComponent } from "../../../redux/slices/visibilitySlice";
 import { useGetAllUserAdvertsQuery} from "../../../redux/slices/mentorsboardApi";
-import { ListContainer, List, Message } from "../AdvertList.styled";
+import { ListContainer, List, Message, AdvertsWrapper, AdvertsBar, AdvertsTitle, AdvertsRedirect } from "../AdvertList.styled";
 import { nanoid } from "@reduxjs/toolkit";
+import { TbArrowRight } from "react-icons/tb";
+
 
 const UserAdverts = () => {
+
+    const dispatch = useDispatch();
+
+    const handleHideComponent = () => {
+        dispatch(hideComponent());
+    };
+
     const {
          data: adverts = [],
          isLoading,
@@ -15,24 +26,34 @@ const UserAdverts = () => {
         } = useGetAllUserAdvertsQuery();
 
     const userAdvertsArray = adverts.userAdverts;
-    console.log(userAdvertsArray);
 
     return(
         <ListContainer>
             {isLoading && <PageLoader />}
             {isSuccess &&
                 (userAdvertsArray.length > 0 ? (
-                <List>
-                    {userAdvertsArray.map(({ author, level, technology, price, id }) => {
-                        return <AdvertCard
-                                    key={nanoid()}
-                                    id={id}
-                                    author={author}
-                                    level={level}
-                                    price={price}
-                                    technology={technology}/>
-                    })}
-                </List>
+                    <AdvertsWrapper>
+                        <AdvertsBar>
+                            <AdvertsTitle>
+                                It's your adverts. Click in if you want to edit or delete.
+                            </AdvertsTitle>
+                            <AdvertsRedirect onClick={handleHideComponent}>
+                                Check all adverts!
+                                <TbArrowRight/>
+                            </AdvertsRedirect>
+                        </AdvertsBar>
+                        <List>
+                            {userAdvertsArray.map(({ author, level, technology, price, id }) => {
+                                return <AdvertCard
+                                            key={nanoid()}
+                                            id={id}
+                                            author={author}
+                                            level={level}
+                                            price={price}
+                                            technology={technology}/>
+                            })}
+                        </List>
+                    </AdvertsWrapper>
             ) : (
                 <Message> You don't have to any adverts. </Message>
                 ))}

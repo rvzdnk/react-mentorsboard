@@ -6,21 +6,26 @@ import Cookies from "js-cookie";
 import { useLogoutMutation } from "../../../redux/slices/mentorsboardApi";
 import { deleteToken } from "../../../redux/slices/tokenSlice";
 import { deleteUser } from "../../../redux/slices/userSlice";
+import { showComponent } from "../../../redux/slices/visibilitySlice";
 
 import { Wrapper, Modal, MenuHead, UserName, UserRole, MenuLink, MenuLinkWrapper } from "./UserMenu.styled";
 
 
 
 export const UserMenuModal = ({open,  setUserMenuIsOpen, setNewAdvertIsOpen}) => {
+    const dispatch = useDispatch();
 
     const switchToNewAdvert =() => {
         setNewAdvertIsOpen(true);
         setUserMenuIsOpen(false);
     }
 
+    const switchToMyAdverts = () => {
+        dispatch(showComponent());
+        setUserMenuIsOpen(false);
+    }
 
     const [logout] = useLogoutMutation();
-    const dispatch = useDispatch();
 
     const logoutUser = async () => {
         await Cookies.remove("token");
@@ -50,7 +55,7 @@ export const UserMenuModal = ({open,  setUserMenuIsOpen, setNewAdvertIsOpen}) =>
                     <MenuLinkWrapper>
                         {userRole==="Mentor" ?
                             <>
-                                <MenuLink>
+                                <MenuLink onClick={switchToMyAdverts}>
                                     My Adverts
                                 </MenuLink>
                                 <MenuLink onClick={switchToNewAdvert}>

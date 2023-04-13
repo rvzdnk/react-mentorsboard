@@ -7,7 +7,7 @@ import { StartUserMenu } from "./StartUserMenu/StartUserMenu";
 import { Container } from "./NavBar.styled";
 
 
-const NavBar = () => {
+const NavBar = ({props}) => {
     const user = useSelector((state) => state.user);
     const isLoggedIn = user.email;
 
@@ -15,7 +15,7 @@ const NavBar = () => {
         <Container>
             <Logo/>
             {isLoggedIn
-            ? <LoginUserMenu/>
+            ? <LoginUserMenu props={props}/>
             : <StartUserMenu/>
             }
         </Container>

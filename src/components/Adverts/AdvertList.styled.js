@@ -17,3 +17,25 @@ export const Message = styled.p`
     font-size: 20px;
     text-align: center;
 `;
+
+export const AdvertsWrapper = styled.div`
+	 display: flex;
+	 flex-direction: column;
+	 align-items: center;
+`
+
+export const AdvertsBar = styled.div`
+	display: flex;
+	justify-content: space-evenly;
+	align-items: center;
+`
+
+export const AdvertsTitle = styled.h3`
+
+`
+
+export const AdvertsRedirect = styled.a`
+	cursor: pointer;
+	display: flex;
+	align-items: center;
+`
