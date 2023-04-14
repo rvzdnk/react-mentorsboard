@@ -28,7 +28,6 @@ const AdvertsList = () => {
     const user = useSelector((state) => state.user);
     const userRole = user.role;
 
-
     return(
         <ListContainer>
             {isLoading && <PageLoader />}
@@ -48,14 +47,14 @@ const AdvertsList = () => {
                     :<></>
                     }
                     <List>
-                        {allAdvertsArray.map(({ author, level, technology, price, id }) => {
+                        {allAdvertsArray.map(({ author, level, technology, price, _id }) => {
                             return <AdvertCard
                                         key={nanoid()}
-                                        id={id}
-                                        author={author}
-                                        level={level}
-                                        price={price}
-                                        technology={technology}/>
+                                        idAdvert={_id}
+                                        authorAdvert={author}
+                                        levelAdvert={level}
+                                        priceAdvert={price}
+                                        technologyAdvert={technology}/>
                         })}
                     </List>
                 </AdvertsWrapper>

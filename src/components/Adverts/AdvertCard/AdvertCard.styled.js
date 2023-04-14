@@ -5,7 +5,7 @@ export const CardItem = styled.div`
     flex-direction: column;
     justify-content: space-evenly;
     height: 125px;
-    min-width: 100px;
+    min-width: 125px;
     align-items: center;
     border: 2px solid black;
     border-radius: 4px;

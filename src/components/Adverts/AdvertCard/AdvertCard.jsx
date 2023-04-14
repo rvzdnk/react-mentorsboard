@@ -1,4 +1,7 @@
 import React from "react";
+
+import { useDeleteAdvertMutation } from "../../../redux/slices/mentorsboardApi";
+
 import {GoStar} from "react-icons/go";
 import {FaJava} from "react-icons/fa";
 import {SiAngularjs, SiCplusplus, SiCss3, SiDotnet, SiHtml5,SiJavascript, SiPhp, SiPython, SiReact, SiRuby, SiScala, SiVuedotjs } from "react-icons/si";
@@ -6,38 +9,43 @@ import {SiAngularjs, SiCplusplus, SiCss3, SiDotnet, SiHtml5,SiJavascript, SiPhp,
 import {CardAuthor, CardItem, CardLevel, CardPrice, CardTechnology, IconLevel, IconTechnology} from "./AdvertCard.styled";
 
 const AdvertCard = ({
-    technology,
-    level,
-    price,
-    author,
+    technologyAdvert,
+    levelAdvert,
+    priceAdvert,
+    authorAdvert,
+    idAdvert,
 }) => {
+
+    const [deleteAdvert] = useDeleteAdvertMutation();
+
 
     return (
         <>
             <CardItem>
-                <CardAuthor>{author}</CardAuthor>
+                <button onClick={()=>deleteAdvert(idAdvert)}>X</button>
+                <CardAuthor>{authorAdvert}</CardAuthor>
                 <CardLevel>
-                    {level}
+                    {levelAdvert}
                     <IconLevel>
-                    {level==='Junior'?<GoStar/>:level==='Mid'?<><GoStar/><GoStar/></>:<><GoStar/><GoStar/><GoStar/></>}
+                    {levelAdvert==='Junior'?<GoStar/>:levelAdvert==='Mid'?<><GoStar/><GoStar/></>:<><GoStar/><GoStar/><GoStar/></>}
                     </IconLevel>
                 </CardLevel>
-                <CardPrice>{price}$/h</CardPrice>
+                <CardPrice>{priceAdvert}$/h</CardPrice>
                 <CardTechnology>
-                    {technology}
+                    {technologyAdvert}
                     <IconTechnology>
-                        {technology==='Java'?<FaJava/>
-                            :technology==="JavaScript"?<SiJavascript/>
-                            :technology==="React"?<SiReact/>
-                            :technology==="Angular"?<SiAngularjs/>
-                            :technology==="Vue"?<SiVuedotjs/>
-                            :technology==="HTML"?<SiHtml5/>
-                            :technology==="Python"?<SiPython/>
-                            :technology==="CSS"?<SiCss3/>
-                            :technology==="PHP"?<SiPhp/>
-                            :technology==="Scala"?<SiScala/>
-                            :technology==="Ruby"?<SiRuby/>
-                            :technology===".Net"?<SiDotnet/>
+                        {technologyAdvert==='Java'?<FaJava/>
+                            :technologyAdvert==="JavaScript"?<SiJavascript/>
+                            :technologyAdvert==="React"?<SiReact/>
+                            :technologyAdvert==="Angular"?<SiAngularjs/>
+                            :technologyAdvert==="Vue"?<SiVuedotjs/>
+                            :technologyAdvert==="HTML"?<SiHtml5/>
+                            :technologyAdvert==="Python"?<SiPython/>
+                            :technologyAdvert==="CSS"?<SiCss3/>
+                            :technologyAdvert==="PHP"?<SiPhp/>
+                            :technologyAdvert==="Scala"?<SiScala/>
+                            :technologyAdvert==="Ruby"?<SiRuby/>
+                            :technologyAdvert===".Net"?<SiDotnet/>
                             :<SiCplusplus/>
                         }
                     </IconTechnology>
