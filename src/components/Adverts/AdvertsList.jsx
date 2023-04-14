@@ -1,5 +1,5 @@
 import React from "react";
-import { useDispatch } from "react-redux";
+import { useDispatch, useSelector } from "react-redux";
 import AdvertCard from "./AdvertCard/AdvertCard";
 import PageLoader from "../PageLoader/PageLoader"
 import { showComponent } from "../../redux/slices/visibilitySlice";
@@ -25,6 +25,9 @@ const AdvertsList = () => {
 
     const allAdvertsArray = adverts.allAdverts;
 
+    const user = useSelector((state) => state.user);
+    const userRole = user.role;
+
 
     return(
         <ListContainer>
@@ -32,7 +35,8 @@ const AdvertsList = () => {
             {isSuccess &&
                 (allAdvertsArray.length > 0 ? (
                 <AdvertsWrapper>
-                    <AdvertsBar>
+                    {userRole === "Mentor"
+                    ?<AdvertsBar>
                         <AdvertsTitle>
                             It's all adverts. Choose the best one.
                         </AdvertsTitle>
@@ -41,6 +45,8 @@ const AdvertsList = () => {
                             <TbArrowLeft/>
                         </AdvertsRedirect>
                     </AdvertsBar>
+                    :<></>
+                    }
                     <List>
                         {allAdvertsArray.map(({ author, level, technology, price, id }) => {
                             return <AdvertCard
