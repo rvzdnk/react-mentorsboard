@@ -59,7 +59,7 @@ export const mentorsboardApi = createApi({
     }),
     deleteAdvert: builder.mutation({
       query: (id) => ({
-        url: `/adverts/${id}`,
+        url: `/adverts/mentor/${id}`,
         method: "DELETE",
       }),
       invalidatesTags: ["Adverts", "Mentor"],

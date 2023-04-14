@@ -17,7 +17,7 @@ const AdvertCard = ({
 }) => {
 
     const [deleteAdvert] = useDeleteAdvertMutation();
-
+    console.log(idAdvert);
 
     return (
         <>

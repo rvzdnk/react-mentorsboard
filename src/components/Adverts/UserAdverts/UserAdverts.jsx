@@ -43,14 +43,14 @@ const UserAdverts = () => {
                             </AdvertsRedirect>
                         </AdvertsBar>
                         <List>
-                            {userAdvertsArray.map(({ author, level, technology, price, id }) => {
+                            {userAdvertsArray.map(({ author, level, technology, price, _id }) => {
                                 return <AdvertCard
                                             key={nanoid()}
-                                            id={id}
-                                            author={author}
-                                            level={level}
-                                            price={price}
-                                            technology={technology}/>
+                                            idAdvert={_id}
+                                            authorAdvert={author}
+                                            levelAdvert={level}
+                                            priceAdvert={price}
+                                            technologyAdvert={technology}/>
                             })}
                         </List>
                     </AdvertsWrapper>
