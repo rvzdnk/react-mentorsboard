@@ -104,7 +104,6 @@ export const SelectInput = styled(Select)`
     height: 40px;
     margin: 10px 0 10px 0;
     color: #000000;
-
 `;
 
 export const SliderInput = styled(Slider)`
