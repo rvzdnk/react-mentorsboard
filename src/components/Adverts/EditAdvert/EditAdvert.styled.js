@@ -2,7 +2,8 @@ import styled from "styled-components";
 import Select from '@mui/material/Select';
 import MenuItem from '@mui/material/MenuItem';
 import InputLabel from '@mui/material/InputLabel';
-
+import Slider from "@mui/material/Slider";
+// import Typography from '@mui/material/Typography';
 
 
 export const CardItemEdited = styled.div`
@@ -45,19 +46,26 @@ export const CardForm = styled.form`
 
 export const SelectInput = styled(Select)`
     width: 100px;
-    height: 30px;
-    margin: 10px 0 10px 0;
+    height: 20px;
+    margin: 9px 0 9px 0;
     color: #000000;
 `;
 
 export const SelectItem = styled(MenuItem)`
     width: 100px;
-    height: 30px;
-    margin: 10px 0 10px 0;
+    height: 20px;
+    margin: 5px 0 5px 0;
     color: #000000;
 `;
 
 export const InputPlaceholder = styled(InputLabel)`
-    font-weight: bold;
     color: black;
 `
+
+export const SliderInput = styled(Slider)`
+    width: 120px;
+`;
+
+export const InputTitle = styled.p`
+    font-weight: bold;
+`;

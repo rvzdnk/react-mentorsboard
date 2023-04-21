@@ -22,13 +22,13 @@ export const CardAuthor = styled.h2`
 `;
 
 export const CardLevel = styled.h2`
-    font-size: 12px;
+    font-size: 14px;
     display: flex;
     justify-content: center;
 `;
 
 export const CardPrice = styled.h2`
-    font-size: 12px;
+    font-size: 16px;
 `;
 
 export const CardTechnology = styled.h2`

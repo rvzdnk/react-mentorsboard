@@ -7,6 +7,7 @@ import AdvertsList from "../Adverts/AdvertsList";
 import NavBar from "../NavBar/NavBar";
 import Cookie from "../Cookie/Cookie";
 import UserAdverts from "../Adverts/UserAdverts/UserAdverts";
+import Footer from "../Footer/Footer";
 
 const Landing = () => {
 
@@ -27,6 +28,7 @@ const Landing = () => {
                     {!isVisible &&
                         <AdvertsList/>
                     }
+                <Footer/>
             </Wrapper>
             <Cookie/>
         </Container>

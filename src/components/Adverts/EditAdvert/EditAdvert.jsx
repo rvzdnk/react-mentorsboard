@@ -1,7 +1,7 @@
 import React from "react";
 
 import { useDeleteAdvertMutation, useEditAdvertMutation } from "../../../redux/slices/mentorsboardApi";
-import { CardItemEdited, DeleteButton, CancelButton, ButtonsWrapper, SelectInput, InputPlaceholder, CardForm, SelectItem } from "./EditAdvert.styled";
+import { CardItemEdited, DeleteButton, CancelButton, ButtonsWrapper, SelectInput, InputTitle, SliderInput, InputPlaceholder, CardForm, SelectItem } from "./EditAdvert.styled";
 import {GrClose} from "react-icons/gr";
 import {AiOutlineRollback} from "react-icons/ai";
 import { useFormik, getIn  } from "formik";
@@ -108,6 +108,23 @@ console.log(values);
                                 </SelectItem>
                             ))}
                         </SelectInput>
+                    </FormControl>
+                    <FormControl>
+                        <InputTitle id="non-linear-slider" gutterBottom>
+                            Price: {getIn(values,"body.price")}$/h
+                        </InputTitle>
+                        <SliderInput
+                            id="price"
+                            name="body.price"
+                            aria-valuetext="Price"
+                            value={getIn(values,"body.price")}
+                            onChange={handleChange}
+                            defaultValue={priceAdvert}
+                            step={1}
+                            min={1}
+                            max={50}
+                            aria-labelledby="price-slider"
+                            />
                     </FormControl>
                     <button type="submit"> Submit </button>
                 </CardForm>

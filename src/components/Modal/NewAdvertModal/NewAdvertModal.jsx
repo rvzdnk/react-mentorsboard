@@ -116,7 +116,6 @@ export const NewAdvertModal = ({open, setNewAdvertIsOpen }) => {
                                     min={1}
                                     max={50}
                                     aria-labelledby="price-slider"
-                                    marks
                                     />
                             </FormControl>
                             <SubmitButton type="submit">
