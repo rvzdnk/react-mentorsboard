@@ -5,8 +5,11 @@ body {
     sans-serif;
   -webkit-font-smoothing: antialiased;
   -moz-osx-font-smoothing: grayscale;
-  background: rgb(157,157,157);
-	background: linear-gradient(0deg, rgba(157,157,157,1) 0%, rgba(251,251,251,1) 100%);
+  background-image: url("./assets/hero.jpg");
+  background-size: cover;
+  background-repeat: no-repeat;
+  color: #ffffff;
+  font-size: 16px;
 }
 
 code {

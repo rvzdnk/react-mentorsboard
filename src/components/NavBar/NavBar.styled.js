@@ -4,7 +4,7 @@ export const Container = styled.div`
     display: flex;
     justify-content: space-between;
     align-items: center;
-    border-bottom: 1px solid black;
+    border-bottom: 1px solid #fff;
     padding: 30px 20px 30px 20px;
 `;
 
@@ -24,7 +24,7 @@ export const Link = styled.span`
             width: 100%;
             height: 2px;
             border-radius: 4px;
-            background-color: #18272F;
+            background-color: #fff;
             bottom: 0;
             left: 0;
             transform-origin: right;

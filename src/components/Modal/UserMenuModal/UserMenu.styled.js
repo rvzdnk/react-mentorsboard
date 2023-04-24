@@ -15,6 +15,7 @@ export const Modal = styled.div`
     box-shadow: 0 5px 20px 0 rgba(0, 0, 0, 0.04);
     display: flex;
     flex-direction: column;
+    color: black;
 `;
 
 export const MenuHead = styled.div`
