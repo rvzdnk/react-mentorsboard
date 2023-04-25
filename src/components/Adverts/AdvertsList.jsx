@@ -47,14 +47,15 @@ const AdvertsList = () => {
                     :<></>
                     }
                     <List>
-                        {allAdvertsArray.map(({ author, level, technology, price, _id }) => {
+                        {allAdvertsArray.map(({ author, level, technology,owner, price, _id }) => {
                             return <AdvertCard
                                         key={nanoid()}
                                         idAdvert={_id}
                                         authorAdvert={author}
                                         levelAdvert={level}
                                         priceAdvert={price}
-                                        technologyAdvert={technology}/>
+                                        technologyAdvert={technology}
+                                        ownerId={owner}/>
                         })}
                     </List>
                 </AdvertsWrapper>

@@ -15,14 +15,16 @@ const AdvertCard = ({
     priceAdvert,
     authorAdvert,
     idAdvert,
+    ownerId,
 }) => {
     const user = useSelector((state) => state.user);
     const userRole = user.role;
+    const userId = user.id;
 
     const [editAdvertIsOpen, setEditAdvertIsOpen] = useState(false);
 
     const handleEditAdvert = () => {
-        if (userRole==="Mentor"){
+        if (userRole==="Mentor" && userId === ownerId){
             setEditAdvertIsOpen(true);
         }
     }
