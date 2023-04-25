@@ -2,6 +2,7 @@ import React, {useState} from "react";
 import LoginModal from "../../Modal/LoginModal/LoginModal";
 import RegisterModal from "../../Modal/RegisterModal/RegisterModal";
 import { Link, MenuWrapper } from "../NavBar.styled";
+import AnimatedTextCharacter from "../../../utils/animatedTextCharacter";
 
 export const StartUserMenu = () => {
     const [registrationIsOpen, setRegistrationIsOpen] = useState(false);
@@ -12,12 +13,16 @@ export const StartUserMenu = () => {
 
     return(
         <MenuWrapper>
-                <Link onClick={handleRegistration}>
-                    Sign up
+                <Link onClick={handleRegistration} whileHover={{scale: 1.1}}>
+                    <AnimatedTextCharacter>
+                        Sign up
+                    </AnimatedTextCharacter>
                 </Link>
                 {registrationIsOpen && <RegisterModal open={registrationIsOpen} setLoginIsOpen={setLoginIsOpen} setRegistrationIsOpen={setRegistrationIsOpen}/>}
-                <Link onClick={handleLogin}>
-                    Log in
+                <Link onClick={handleLogin} whileHover={{scale: 1.1}}>
+                    <AnimatedTextCharacter>
+                        Log in
+                    </AnimatedTextCharacter>
                 </Link>
                 {loginIsOpen && <LoginModal open={loginIsOpen} setLoginIsOpen={setLoginIsOpen} setRegistrationIsOpen={setRegistrationIsOpen}/>}
         </MenuWrapper>

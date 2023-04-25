@@ -15,21 +15,18 @@ const Landing = () => {
 
     const isVisible = useSelector((store) => store.visibility.isVisible);
 
-    // const user = useSelector((state) => state.user);
-    // const userRole = user.role;
-
     return (
         <>
         <Container>
             <NavBar/>
             <Wrapper>
                 <Welcome/>
-                    {isVisible &&
-                        <UserAdverts/>
-                    }
-                    {!isVisible &&
-                        <AdvertsList/>
-                    }
+                {isVisible &&
+                    <UserAdverts/>
+                }
+                {!isVisible &&
+                    <AdvertsList/>
+                }
                 <Footer/>
             </Wrapper>
             <Cookie/>

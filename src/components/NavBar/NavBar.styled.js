@@ -1,6 +1,7 @@
 import styled from "styled-components";
+import { motion } from "framer-motion";
 
-export const Container = styled.div`
+export const Container = styled(motion.div)`
     display: flex;
     justify-content: space-between;
     align-items: center;
@@ -9,37 +10,15 @@ export const Container = styled.div`
 `;
 
 export const MenuWrapper = styled.div`
-
+    display: flex;
 `;
 
-export const Link = styled.span`
+export const Link = styled(motion.div)`
     cursor: pointer;
     font-size: 18px;
+    font-weight: bold;
     letter-spacing: 0.05em;
     position: relative;
-    margin: 0 0 0 10px;
-        &::before {
-            content: '';
-            position: absolute;
-            width: 100%;
-            height: 2px;
-            border-radius: 4px;
-            background-color: #fff;
-            bottom: 0;
-            left: 0;
-            transform-origin: right;
-            transform: scaleX(0);
-            transition: transform .3s ease-in-out;
-        },
-        &:hover::before {
-            transform-origin: left;
-            transform: scaleX(1);
-        },
+    margin: 0 0 0 15px;
+    text-shadow: 3px 3px 0px rgba(0, 0, 0, 1);
 `;
-
-export const UserMenu = styled.span`
-    cursor: pointer;
-    font-size: 18px;
-    letter-spacing: 0.05em;
-    margin: 0 0 0 10px;
-`

@@ -1,4 +1,4 @@
-import React, { useState } from "react";
+import React, {useState} from "react";
 import { motion, useAnimationControls } from "framer-motion";
 
 const TextSpan = ({children}) => {
@@ -16,7 +16,7 @@ const TextSpan = ({children}) => {
                 "scale3d(1,1,1)",
             ],
             transition: {
-                times: [0, .4, .6, .7, .8, .9],
+                times: [0, .4, .6, .7, .8, 1],
             },
             color: [
                 "rgb(199, 210, 254)",
@@ -44,7 +44,6 @@ const TextSpan = ({children}) => {
         </motion.span>
     )
 }
-
 
 const AnimatedTextCharacter = ({ children }) => {
   const words = children.split("");

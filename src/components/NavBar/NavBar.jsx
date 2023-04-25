@@ -12,7 +12,15 @@ const NavBar = ({props}) => {
     const isLoggedIn = user.email;
 
     return(
-        <Container>
+        <Container whileHover={{
+            borderColor: [
+                "rgb(199, 210, 254)",
+                "rgb(254, 202, 202)",
+                "rgb(254, 249, 195)",
+                "rgb(254, 249, 195)",
+                "rgb(254, 249, 220)",
+                "rgb(255,255,255)"]
+         }}>
             <Logo/>
             {isLoggedIn
             ? <LoginUserMenu props={props}/>
