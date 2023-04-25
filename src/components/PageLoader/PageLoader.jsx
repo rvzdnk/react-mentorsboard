@@ -3,7 +3,8 @@ import PropTypes from "prop-types";
 import { MutatingDots } from "react-loader-spinner";
 
 const PageLoader = ({
-    color = "#000000",
+    color = "#FFF",
+    secondaryColor= "#f8ff75",
     horizontalAlignment = "center",
     verticalAlignment = "center",
     children,
@@ -11,10 +12,10 @@ const PageLoader = ({
     return (
         <>
             <MutatingDots 
-                height="100"
+                max-height="100%"
                 width="100"
                 color={color}
-                secondaryColor= {color}
+                secondaryColor= {secondaryColor}
                 radius='12.5'
                 ariaLabel="mutating-dots-loading"
                 wrapperStyle={{

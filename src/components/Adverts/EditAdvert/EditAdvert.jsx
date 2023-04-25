@@ -1,16 +1,13 @@
 import React from "react";
 
 import { useDeleteAdvertMutation, useEditAdvertMutation } from "../../../redux/slices/mentorsboardApi";
-import { CardItemEdited, DeleteButton, CancelButton, ButtonsWrapper, SelectInput, InputTitle, SliderInput, InputPlaceholder, CardForm, SelectItem } from "./EditAdvert.styled";
-import {GrClose} from "react-icons/gr";
-import {AiOutlineRollback} from "react-icons/ai";
+import { CardItemEdited, DeleteButton, CancelButton, ButtonsWrapper, SelectInput, InputTitle, SliderInput, InputPlaceholder, CardForm, SelectItem, SubmitButton } from "./EditAdvert.styled";
+import { AiOutlineRollback, AiOutlineClose } from "react-icons/ai";
 import { useFormik, getIn  } from "formik";
 
 import { advertLevel, advertTechnology } from "../../../utils/advertData";
 import { toast } from "react-toastify";
 import FormControl from "@mui/material/FormControl";
-
-
 
 
 const EditAdvert = ({
@@ -49,22 +46,24 @@ const EditAdvert = ({
 },
 })
 
-console.log(values);
-
     return (
         <>
             <CardItemEdited open={open}>
                 <ButtonsWrapper>
                     <CancelButton onClick={()=>setEditAdvertIsOpen(false)}>
-                        <AiOutlineRollback/>
+                        <AiOutlineRollback color="#FFF" font-weight="bold"/>
                     </CancelButton>
                     <DeleteButton onClick={()=>deleteAdvert(idAdvert)}>
-                        <GrClose/>
+                        <AiOutlineClose color="#FFF"/>
                     </DeleteButton>
                 </ButtonsWrapper>
                 <CardForm onSubmit={handleSubmit}>
                     <FormControl>
-                        <InputPlaceholder id="level-label">
+                        <InputPlaceholder id="level-label" 
+                        sx={{color: "white",
+                            "&.Mui-focused": { color: "#f8ff75"}
+                        }}
+                        >
                             Level
                         </InputPlaceholder>
                         <SelectInput
@@ -75,6 +74,21 @@ console.log(values);
                             defaultValue={levelAdvert}
                             value={getIn(values,"body.level")}
                             onChange={handleChange}
+                            sx={{
+                                fontWeight: "bold",
+                            "&.MuiOutlinedInput-root": {
+                                "& fieldset": {
+                                  borderColor: "#FFF"
+                                },
+                                "&:hover fieldset": {
+                                  borderColor: "#f8ff75"
+                                },
+                                "&.Mui-focused fieldset": {
+                                  borderColor: "#f8ff75"},
+                                "& svg": {
+                                    color: "#000"}
+                                }
+                            }}
                             >
                                 {advertLevel.map((levelAdvert) => (
                                     <SelectItem
@@ -87,7 +101,10 @@ console.log(values);
                         </SelectInput>
                     </FormControl>
                     <FormControl>
-                        <InputPlaceholder id="technology-label">
+                        <InputPlaceholder id="technology-label"  
+                        sx={{color: "white",
+                            "&.Mui-focused": { color: "#f8ff75"}
+                        }}>
                             Technology
                         </InputPlaceholder>
                         <SelectInput
@@ -98,6 +115,21 @@ console.log(values);
                             defaultValue={technologyAdvert}
                             value={getIn(values,"body.technology")}
                             onChange={handleChange}
+                            sx={{
+                                fontWeight: "bold",
+                            "&.MuiOutlinedInput-root": {
+                                "& fieldset": {
+                                  borderColor: "#FFF"
+                                },
+                                "&:hover fieldset": {
+                                  borderColor: "#f8ff75"
+                                },
+                                "&.Mui-focused fieldset": {
+                                  borderColor: "#f8ff75"},
+                                "& svg": {
+                                    color: "#000"}
+                                }
+                            }}
                             >
                             {advertTechnology.map((technologyAdvert) => (
                                 <SelectItem
@@ -124,9 +156,10 @@ console.log(values);
                             min={1}
                             max={50}
                             aria-labelledby="price-slider"
+                            sx={{ color: '#f8ff75'}}
                             />
                     </FormControl>
-                    <button type="submit"> Submit </button>
+                    <SubmitButton type="submit"> Submit </SubmitButton>
                 </CardForm>
             </CardItemEdited>
 

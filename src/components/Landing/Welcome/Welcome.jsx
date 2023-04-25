@@ -5,7 +5,6 @@ import AnimatedTextCharacter from '../../../utils/animatedTextCharacter';
 const Welcome =() => {
     const user = useSelector((state) => state.user);
     const userName = user.name;
-    const userNameText = userName.toString();
     const userRole = user.role;
     const isLoggedIn = user.email;
 
@@ -19,7 +18,7 @@ const Welcome =() => {
                         </AnimatedTextCharacter>
                         <UserNameWrapper>
                             <AnimatedTextCharacter>
-                                {userNameText}
+                                {userName}
                             </AnimatedTextCharacter>
                             <AnimatedTextCharacter>
                                 ,
@@ -32,8 +31,14 @@ const Welcome =() => {
                 </Title>
             :
             <Title>
-                <Hello>Hello,</Hello>
-                welcome to Mentorsboard!
+                <Hello>
+                    <AnimatedTextCharacter>
+                        Hello,
+                    </AnimatedTextCharacter>
+                </Hello>
+                <AnimatedTextCharacter>
+                    welcome to Mentorsboard!
+                </AnimatedTextCharacter>
             </Title>
             }
             {userRole === "Mentor" ?

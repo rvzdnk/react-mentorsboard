@@ -1,4 +1,5 @@
 import React, {useState} from "react";
+import { useSelector } from "react-redux";
 
 import {GoStar} from "react-icons/go";
 import {FaJava} from "react-icons/fa";
@@ -15,14 +16,21 @@ const AdvertCard = ({
     authorAdvert,
     idAdvert,
 }) => {
+    const user = useSelector((state) => state.user);
+    const userRole = user.role;
 
     const [editAdvertIsOpen, setEditAdvertIsOpen] = useState(false);
 
+    const handleEditAdvert = () => {
+        if (userRole==="Mentor"){
+            setEditAdvertIsOpen(true);
+        }
+    }
 
     return (
         <>
         {!editAdvertIsOpen ?
-            <CardItem onClick={()=> setEditAdvertIsOpen(true)}apple>
+            <CardItem onClick={handleEditAdvert}>
                 <CardAuthor>{authorAdvert}</CardAuthor>
                 <CardLevel>
                     {levelAdvert}
