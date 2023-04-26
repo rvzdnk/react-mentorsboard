@@ -38,7 +38,7 @@ export const CardAuthor = styled.p`
     font-size: 1.2rem;
 `;
 
-export const CardLevel = styled.p`
+export const CardLevel = styled.div`
     font-size: .9rem;
     display: flex;
     justify-content: center;
@@ -48,7 +48,7 @@ export const CardPrice = styled.p`
     font-size: 1.1rem;
 `;
 
-export const CardTechnology = styled.p`
+export const CardTechnology = styled.div`
     font-size: 16px;
     display: flex;
     align-items: center;
