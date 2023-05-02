@@ -20,13 +20,21 @@ export const MenuWrapper = styled.div`
       }
 `;
 
-export const UserLinks = styled.div`
+export const LoginMenuWrapper = styled.div`
     display: flex;
     @media (max-width: 600px) {
         display:none}
 `;
 
-
+export const HamburgerMenu = styled.div`
+    display: none;
+    @media (max-width: 600px) {
+        cursor: pointer;
+        display:flex;
+        justify-content: center;
+        align-items: center;
+    }
+`;
 
 export const Link = styled(motion.div)`
     cursor: pointer;

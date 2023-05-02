@@ -1,8 +1,9 @@
 import { useSelector, useDispatch } from "react-redux";
 import { useState } from "react";
 
-import { MenuWrapper, Link, UserLinks } from "../NavBar.styled";
+import { LoginMenuWrapper, Link, HamburgerMenu } from "../NavBar.styled";
 
+import { UserMenuModal } from "../../Modal/UserMenuModal/UserMenuModal";
 import { NewAdvertModal } from "../../Modal/NewAdvertModal/NewAdvertModal";
 import { showComponent } from "../../../redux/slices/visibilitySlice";
 import { useLogoutMutation } from "../../../redux/slices/mentorsboardApi";
@@ -10,7 +11,7 @@ import { deleteToken } from "../../../redux/slices/tokenSlice";
 import { deleteUser } from "../../../redux/slices/userSlice";
 
 import AnimatedTextCharacter from '../../../utils/animatedTextCharacter';
-
+import {GiHamburgerMenu} from "react-icons/gi";
 import Cookies from "js-cookie";
 
 export const LoginUserMenu = () => {
@@ -28,8 +29,10 @@ export const LoginUserMenu = () => {
     });
   };
 
+    const [userMenuIsOpen, setUserMenuIsOpen] = useState(false);
     const [newAdvertIsOpen, setNewAdvertIsOpen] = useState(false);
 
+    const handleUserMenu = () => {setUserMenuIsOpen(true)};
     const handleNewAdvert = () => {setNewAdvertIsOpen(true)};
 
     const user = useSelector((state) => state.user);
@@ -37,9 +40,9 @@ export const LoginUserMenu = () => {
 
     return (
       <>
-      <MenuWrapper>
+      <LoginMenuWrapper>
         {userRole==="Mentor" ?
-          <UserLinks>
+          <>
               <Link onClick={handleMyAdverts} whileHover={{scale: 1.1}}>
                   <AnimatedTextCharacter>
                     My Adverts
@@ -50,14 +53,18 @@ export const LoginUserMenu = () => {
                   Create Advert
                 </AnimatedTextCharacter>
               </Link>
-          </UserLinks>
+          </>
         :<></>}
         <Link onClick={logoutUser} whileHover={{scale: 1.1}}>
           <AnimatedTextCharacter>
               Logout
           </AnimatedTextCharacter>
         </Link>
-      </MenuWrapper>
+      </LoginMenuWrapper>
+      <HamburgerMenu onClick={handleUserMenu}>
+            <GiHamburgerMenu/>
+      </HamburgerMenu>
+      {userMenuIsOpen&&<UserMenuModal open={userMenuIsOpen} setNewAdvertIsOpen={setUserMenuIsOpen}/>}
       {newAdvertIsOpen&&<NewAdvertModal open={newAdvertIsOpen} setNewAdvertIsOpen={setNewAdvertIsOpen}/>}
       </>
 
