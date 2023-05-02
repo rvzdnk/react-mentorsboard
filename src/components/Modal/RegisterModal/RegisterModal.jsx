@@ -1,13 +1,12 @@
 import React from "react";
 import { useFormik } from "formik";
 import { toast } from "react-toastify";
+import { AiOutlineClose } from "react-icons/ai";
 
 import { useRegisterMutation } from "../../../redux/slices/mentorsboardApi";
 import { registrationSchema } from "../../../schemas/formValidation";
 
-
-import { Link } from "../../NavBar/NavBar.styled";
-import { Backdrop, Modal, Paragraph, Wrapper, CloseButtonWrapper, FormWrapper, CloseButton, Redirect, Form, TextInput, RadioInput, RadioInputLabel, RadioMarker, SubmitButton  } from "../Modal.styled";
+import { Backdrop, Modal, Paragraph, Wrapper, CloseButtonWrapper, FormWrapper, CloseButton, Redirect, LinkRedirect, Form, TextInput, RadioInput, RadioInputLabel, RadioMarker, SubmitButton  } from "../Modal.styled";
 
 const RegisterModal = ({open, setLoginIsOpen, setRegistrationIsOpen }) => {
 
@@ -49,7 +48,7 @@ const RegisterModal = ({open, setLoginIsOpen, setRegistrationIsOpen }) => {
                     <Modal isOpen={open}>
                         <CloseButtonWrapper>
                             <CloseButton onClick={()=>setRegistrationIsOpen(false)}>
-                                X
+                                <AiOutlineClose color="#FFF"/>
                             </CloseButton>
                         </CloseButtonWrapper>
                         <FormWrapper>
@@ -66,6 +65,23 @@ const RegisterModal = ({open, setLoginIsOpen, setRegistrationIsOpen }) => {
                                     onChange={handleChange}
                                     error={touched.name && Boolean(errors.name)}
                                     helperText={touched.name && errors.name}
+                                    sx={{
+                                        '& label.Mui-focused': {
+                                            color: '#f8ff75',
+                                        },
+                                        '& .MuiInput-underline:after': {
+                                            borderBottomColor:  '#f8ff75',
+                                        },
+                                        '& .MuiInputLabel-root': {
+                                            color: '#FFF',
+                                            paddingLeft: "10px"
+                                        },
+                                        '& input': {
+                                            color: '#f8ff75',
+                                            border: "1px solid",
+                                            borderColor: '#FFF'
+                                        },
+                                    }}
                                 />
                                 <TextInput
                                     fullWidth
@@ -78,6 +94,23 @@ const RegisterModal = ({open, setLoginIsOpen, setRegistrationIsOpen }) => {
                                     onChange={handleChange}
                                     error={touched.email && Boolean(errors.email)}
                                     helperText={touched.email && errors.email}
+                                    sx={{
+                                        '& label.Mui-focused': {
+                                            color: '#f8ff75',
+                                        },
+                                        '& .MuiInput-underline:after': {
+                                            borderBottomColor:  '#f8ff75',
+                                        },
+                                        '& .MuiInputLabel-root': {
+                                            color: '#FFF',
+                                            paddingLeft: "10px"
+                                        },
+                                        '& input': {
+                                            color: '#f8ff75',
+                                            border: "1px solid",
+                                            borderColor: '#FFF'
+                                        },
+                                    }}
                                 />
                                 <TextInput
                                     fullWidth
@@ -91,6 +124,23 @@ const RegisterModal = ({open, setLoginIsOpen, setRegistrationIsOpen }) => {
                                     onChange={handleChange}
                                     error={touched.password && Boolean(errors.password)}
                                     helperText={touched.password && errors.password}
+                                    sx={{
+                                        '& label.Mui-focused': {
+                                            color: '#f8ff75',
+                                        },
+                                        '& .MuiInput-underline:after': {
+                                            borderBottomColor:  '#f8ff75',
+                                        },
+                                        '& .MuiInputLabel-root': {
+                                            color: '#FFF',
+                                            paddingLeft: "10px"
+                                        },
+                                        '& input': {
+                                            color: '#f8ff75',
+                                            border: "1px solid",
+                                            borderColor: '#FFF'
+                                        },
+                                    }}
                                 />
                                 <RadioInput
                                     name="role"
@@ -98,6 +148,11 @@ const RegisterModal = ({open, setLoginIsOpen, setRegistrationIsOpen }) => {
                                     value={values.role}
                                     onChange={handleChange}
                                     row={true}
+                                    sx={{
+                                        '& span': {
+                                            color: '#fff',
+                                        },
+                                    }}
                                 >
                                     <RadioInputLabel
                                         value="Student"
@@ -117,9 +172,13 @@ const RegisterModal = ({open, setLoginIsOpen, setRegistrationIsOpen }) => {
                         </FormWrapper>
                         <Redirect>
                             No account yet?
-                            <Link onClick={switchLogin}>
+                            <LinkRedirect onClick={switchLogin}
+                                whileHover={{
+                                    scale: 1.1,
+                                    fontWeight: 700,
+                                    }}>
                                 Log in!
-                            </Link>
+                            </LinkRedirect>
                         </Redirect>
                     </Modal>
                 </Wrapper>

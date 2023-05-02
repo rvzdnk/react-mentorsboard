@@ -27,17 +27,18 @@ export const AdvertsWrapper = styled.div`
 
 export const AdvertsBar = styled.div`
 	display: flex;
-	justify-content: space-evenly;
+	flex-direction: column;
+	justify-content: center;
 	align-items: center;
-	margin: 10px 0 10px 0;
 `
 
 export const AdvertsTitle = styled.h3`
-	margin: 0 10px 0 0;
+	margin: 0 0 10px 0;
 `
 
 export const AdvertsRedirect = styled.a`
 	cursor: pointer;
+	margin: 0 0 10px 0;
 	display: flex;
 	align-items: center;
 `

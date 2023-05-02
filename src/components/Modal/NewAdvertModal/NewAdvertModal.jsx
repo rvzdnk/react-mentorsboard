@@ -6,7 +6,7 @@ import { useCreateAdvertMutation } from "../../../redux/slices/mentorsboardApi";
 import { advertLevel, advertTechnology } from "../../../utils/advertData";
 // import { advertValidation } from "../../../schemas/advertValidation";
 
-import { GrClose } from "react-icons/gr";
+import { AiOutlineClose } from "react-icons/ai";
 import { Wrapper, Modal, SelectInput, InputPlaceholder, CloseButton, CloseButtonWrapper, FormWrapper, Paragraph, Form, SliderInput, InputTitle, SubmitButton } from "../Modal.styled";
 
 import FormControl from "@mui/material/FormControl";
@@ -45,14 +45,17 @@ export const NewAdvertModal = ({open, setNewAdvertIsOpen }) => {
                 <Modal isOpen={open}>
                     <CloseButtonWrapper>
                         <CloseButton onClick={()=>setNewAdvertIsOpen(false)}>
-                            <GrClose/>
+                            <AiOutlineClose color="#FFF"/>
                         </CloseButton>
                     </CloseButtonWrapper>
                     <FormWrapper>
                         <Paragraph> Create Advert </Paragraph>
                         <Form onSubmit={handleSubmit}>
                             <FormControl>
-                                <InputPlaceholder id="level-label">
+                                <InputPlaceholder id="level-label"
+                                sx={{color: "white",
+                                "&.Mui-focused": { color: "#f8ff75"}
+                                }}>
                                     Level
                                 </InputPlaceholder>
                                 <SelectInput
@@ -64,6 +67,22 @@ export const NewAdvertModal = ({open, setNewAdvertIsOpen }) => {
                                     onChange={handleChange}
                                     error={touched.level && Boolean(errors.level)}
                                     helpertext={touched.level && errors.level}
+                                    sx={{
+                                        color: "#FFF",
+                                        fontWeight: "bold",
+                                    "&.MuiOutlinedInput-root": {
+                                        "& fieldset": {
+                                          borderColor: "#FFF"
+                                        },
+                                        "&:hover fieldset": {
+                                          borderColor: "#f8ff75"
+                                        },
+                                        "&.Mui-focused fieldset": {
+                                          borderColor: "#f8ff75"},
+                                        "& svg": {
+                                            color: "#FFF"}
+                                        }
+                                    }}
                                 >
                                     {advertLevel.map((level) => (
                                         <MenuItem
@@ -76,7 +95,10 @@ export const NewAdvertModal = ({open, setNewAdvertIsOpen }) => {
                                 </SelectInput>
                             </FormControl>
                             <FormControl>
-                                <InputPlaceholder id="technology-label">
+                                <InputPlaceholder id="technology-label"
+                                    sx={{color: "white",
+                                    "&.Mui-focused": { color: "#f8ff75"}
+                                    }}>
                                     Technology
                                 </InputPlaceholder>
                                 <SelectInput
@@ -88,6 +110,22 @@ export const NewAdvertModal = ({open, setNewAdvertIsOpen }) => {
                                     onChange={handleChange}
                                     error={touched.technology && Boolean(errors.technology)}
                                     helpertext={touched.technology && errors.technology}
+                                    sx={{
+                                        fontWeight: "bold",
+                                        color: "#FFF",
+                                    "&.MuiOutlinedInput-root": {
+                                        "& fieldset": {
+                                          borderColor: "#FFF"
+                                        },
+                                        "&:hover fieldset": {
+                                          borderColor: "#f8ff75"
+                                        },
+                                        "&.Mui-focused fieldset": {
+                                          borderColor: "#f8ff75"},
+                                        "& svg": {
+                                            color: "#FFF"}
+                                        }
+                                    }}
                                 >
                                     {advertTechnology.map((technology) => (
                                         <MenuItem
@@ -100,7 +138,8 @@ export const NewAdvertModal = ({open, setNewAdvertIsOpen }) => {
                                 </SelectInput>
                             </FormControl>
                             <FormControl>
-                                <InputTitle id="non-linear-slider" gutterBottom>
+                                <InputTitle id="non-linear-slider" gutterBottom
+                                sx={{ color: '#fff'}}>
                                     Price: {values.price}$/h
                                 </InputTitle>
                                 <SliderInput
@@ -111,11 +150,12 @@ export const NewAdvertModal = ({open, setNewAdvertIsOpen }) => {
                                     onChange={handleChange}
                                     error={touched.price && Boolean(errors.price)}
                                     helpertext={touched.price && errors.price}
-                                    defaultValue={0}
+                                    defaultValue={1}
                                     step={1}
                                     min={1}
                                     max={50}
                                     aria-labelledby="price-slider"
+                                    sx={{ color: '#f8ff75'}}
                                     />
                             </FormControl>
                             <SubmitButton type="submit">

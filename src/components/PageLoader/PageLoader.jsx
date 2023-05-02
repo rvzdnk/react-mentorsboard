@@ -12,7 +12,7 @@ const PageLoader = ({
     return (
         <>
             <MutatingDots 
-                max-height="100%"
+                max-height="100"
                 width="100"
                 color={color}
                 secondaryColor= {secondaryColor}
@@ -22,6 +22,7 @@ const PageLoader = ({
                     display: "flex",
                     justifyContent: horizontalAlignment,
                     alignItems: verticalAlignment,
+                    height: "200px",
                 }}
                 visible={true}
             >

@@ -5,16 +5,15 @@ import { useFormik } from "formik";
 import { toast } from "react-toastify";
 import Cookies from "js-cookie";
 
-import {GrClose} from "react-icons/gr";
+import { AiOutlineClose } from "react-icons/ai";
 
 import { useLoginMutation } from "../../../redux/slices/mentorsboardApi";
 import { addUser } from "../../../redux/slices/userSlice";
 import { addToken } from "../../../redux/slices/tokenSlice";
 import { loginSchema } from "../../../schemas/formValidation";
 
-import { Backdrop, Modal, Paragraph, Wrapper, CloseButtonWrapper, FormWrapper, Redirect, CloseButton , Form, TextInput, SubmitButton} from "../Modal.styled";
-
-import { Link } from "../../NavBar/NavBar.styled";
+import { Backdrop, Modal, Paragraph, Wrapper, CloseButtonWrapper, FormWrapper, Redirect, LinkRedirect, CloseButton , Form, TextInput, SubmitButton} from "../Modal.styled";
+import AnimatedTextCharacter from "../../../utils/animatedTextCharacter";
 
 const LoginModal = ({open, setLoginIsOpen, setRegistrationIsOpen}) => {
 
@@ -68,11 +67,15 @@ const LoginModal = ({open, setLoginIsOpen, setRegistrationIsOpen}) => {
                     <Modal isOpen={open}>
                         <CloseButtonWrapper>
                             <CloseButton onClick={()=>setLoginIsOpen(false)}>
-                                <GrClose/>
+                                <AiOutlineClose color="#FFF"/>
                             </CloseButton>
                         </CloseButtonWrapper>
                         <FormWrapper>
-                            <Paragraph> Log in </Paragraph>
+                            <Paragraph> 
+                                <AnimatedTextCharacter>
+                                    Log in 
+                                </AnimatedTextCharacter>
+                            </Paragraph>
                             <Form onSubmit={handleSubmit}>
                                 <TextInput
                                     fullWidth
@@ -85,6 +88,23 @@ const LoginModal = ({open, setLoginIsOpen, setRegistrationIsOpen}) => {
                                     onChange={handleChange}
                                     error={touched.email && Boolean(errors.email)}
                                     helperText={touched.email && errors.email}
+                                    sx={{
+                                        '& label.Mui-focused': {
+                                            color: '#f8ff75',
+                                        },
+                                        '& .MuiInput-underline:after': {
+                                            borderBottomColor:  '#f8ff75',
+                                        },
+                                        '& .MuiInputLabel-root': {
+                                            color: '#FFF',
+                                            paddingLeft: "10px"
+                                        },
+                                        '& input': {
+                                            color: '#f8ff75',
+                                            border: "1px solid",
+                                            borderColor: '#FFF'
+                                        },
+                                    }}
                                 />
                                 <TextInput
                                     fullWidth
@@ -98,6 +118,23 @@ const LoginModal = ({open, setLoginIsOpen, setRegistrationIsOpen}) => {
                                     onChange={handleChange}
                                     error={touched.password && Boolean(errors.password)}
                                     helperText={touched.password && errors.password}
+                                    sx={{
+                                        '& label.Mui-focused': {
+                                            color: '#f8ff75',
+                                        },
+                                        '& .MuiInput-underline:after': {
+                                            borderBottomColor:  '#f8ff75',
+                                        },
+                                        '& .MuiInputLabel-root': {
+                                            color: '#FFF',
+                                            paddingLeft: "10px"
+                                        },
+                                        '& input': {
+                                            color: '#f8ff75',
+                                            border: "1px solid",
+                                            borderColor: '#FFF'
+                                        },
+                                    }}
                                 />
                                 <SubmitButton type="submit">
                                     Submit
@@ -106,9 +143,13 @@ const LoginModal = ({open, setLoginIsOpen, setRegistrationIsOpen}) => {
                         </FormWrapper>
                         <Redirect>
                             No account yet?
-                            <Link onClick={switchRegistration}>
+                            <LinkRedirect onClick={switchRegistration} 
+                                whileHover={{
+                                    scale: 1.1,
+                                    fontWeight: 700,
+                                    }}>
                                 Sign up!
-                            </Link>
+                            </LinkRedirect>
                         </Redirect>
                     </Modal>
                 </Wrapper>

@@ -14,10 +14,16 @@ export const LogoMain = styled(motion.div)`
     padding: 0 4px 0 4px;
     margin: 0 2px 0 0;
     text-shadow: 3px 3px 0px rgba(0, 0, 0, 1);
+    @media (max-width: 370px) {
+        font-size: 1.2rem;
+       }
 `
 
 export const LogoText = styled.p`
     font-size: 1.3rem;
     font-weight: bold;
     text-shadow: 3px 3px 0px rgba(0, 0, 0, 1);
+    @media (max-width: 370px) {
+        font-size: 1.2rem;
+       }
 `

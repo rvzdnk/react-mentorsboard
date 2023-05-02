@@ -1,7 +1,7 @@
 import { useSelector, useDispatch } from "react-redux";
 import { useState } from "react";
 
-import { MenuWrapper, Link } from "../NavBar.styled";
+import { MenuWrapper, Link, UserLinks } from "../NavBar.styled";
 
 import { NewAdvertModal } from "../../Modal/NewAdvertModal/NewAdvertModal";
 import { showComponent } from "../../../redux/slices/visibilitySlice";
@@ -39,7 +39,7 @@ export const LoginUserMenu = () => {
       <>
       <MenuWrapper>
         {userRole==="Mentor" ?
-          <>
+          <UserLinks>
               <Link onClick={handleMyAdverts} whileHover={{scale: 1.1}}>
                   <AnimatedTextCharacter>
                     My Adverts
@@ -50,7 +50,7 @@ export const LoginUserMenu = () => {
                   Create Advert
                 </AnimatedTextCharacter>
               </Link>
-          </>
+          </UserLinks>
         :<></>}
         <Link onClick={logoutUser} whileHover={{scale: 1.1}}>
           <AnimatedTextCharacter>
