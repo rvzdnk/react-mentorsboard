@@ -64,7 +64,7 @@ export const LoginUserMenu = () => {
       <HamburgerMenu onClick={handleUserMenu}>
             <GiHamburgerMenu/>
       </HamburgerMenu>
-      {userMenuIsOpen&&<UserMenuModal open={userMenuIsOpen} setNewAdvertIsOpen={setUserMenuIsOpen}/>}
+      {userMenuIsOpen&&<UserMenuModal open={userMenuIsOpen} setUserMenuIsOpen={setUserMenuIsOpen}/>}
       {newAdvertIsOpen&&<NewAdvertModal open={newAdvertIsOpen} setNewAdvertIsOpen={setNewAdvertIsOpen}/>}
       </>
 
