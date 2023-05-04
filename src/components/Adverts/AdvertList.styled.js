@@ -10,7 +10,7 @@ export const List = styled.ul`
     flex-wrap: wrap;
 	justofy-content: center;
 	align-items: center;
-    margin: -10px -10px 0 0;
+    margin: -20px 0 0 -20px;
     padding: 0;
 `;
 

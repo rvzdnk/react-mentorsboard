@@ -10,24 +10,23 @@ export const CardItem = styled.div`
     height: 200px;
     border: transparent;
     border-radius: 4px;
-    flex-basis: calc((100% / 6) - 30px);
-    margin-top: 20px;
-    margin-left: 20px;
+    flex-basis: calc((100% / 6) - 20px);
+    margin: 20px 0 0 20px;
     background-color: rgba(0,0,0,0.6);
     box-shadow: 2px 2px 2px 2px rgba(0,0,0,0.7);
     text-shadow: 3px 3px 0px rgba(0, 0, 0, 1);
     font-weight: bold;
         @media (max-width: 1000px) {
-            flex-basis: calc((100% / 5) - 30px)
+            flex-basis: calc((100% / 5) - 20px)
         }
         @media (max-width: 900px) {
-            flex-basis: calc((100% / 4) - 30px)
+            flex-basis: calc((100% / 4) - 20px)
         }
         @media (max-width: 700px) {
-            flex-basis: calc((100% / 3) - 30px)
+            flex-basis: calc((100% / 3) - 20px)
         }
         @media (max-width: 550px) {
-            flex-basis: calc((100% / 2) - 30px)
+            flex-basis: calc((100% / 2) - 20px)
         }
         @media (max-width: 350px) {
             flex-basis: calc((100% / 1) - 50px)
