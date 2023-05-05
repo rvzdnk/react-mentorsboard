@@ -14,7 +14,7 @@ import InputLabel from '@mui/material/InputLabel';
 export const Backdrop = styled.div`
     background-color: rgba(40, 40, 43, 0.8);
     width: 100vw;
-    height: 100vh;
+    height: 100%;
     z-index: 10;
     top: 50%;
     left: 50%;
@@ -33,7 +33,6 @@ export const Wrapper = styled.div`
 export const Modal = styled.div`
     width: 250px;
     padding: 20px 10px;
-    background: white;
     border-radius: 16px;
     background-color: rgba(0, 0, 0);
     box-shadow: 0 5px 20px 0 rgba(0, 0, 0, 0.04);

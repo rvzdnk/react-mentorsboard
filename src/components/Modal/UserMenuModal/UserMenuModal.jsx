@@ -8,7 +8,8 @@ import { deleteToken } from "../../../redux/slices/tokenSlice";
 import { deleteUser } from "../../../redux/slices/userSlice";
 import { showComponent } from "../../../redux/slices/visibilitySlice";
 
-import { Wrapper, Modal, MenuHead, UserName, UserRole, MenuLink, MenuLinkWrapper } from "./UserMenu.styled";
+import { AiOutlineClose } from "react-icons/ai";
+import { Wrapper, Modal, MenuHead, UserName, UserRole, MenuLink, MenuLinkWrapper, MenuHeadWrapper } from "./UserMenu.styled";
 import { CloseButton, CloseButtonWrapper } from "../Modal.styled";
 
 
@@ -44,19 +45,21 @@ export const UserMenuModal = ({open,  setUserMenuIsOpen, setNewAdvertIsOpen}) =>
         <>
             <Wrapper>
                 <Modal isOpen={open}>
-                    <MenuHead>
-                        <UserName>
-                            {userName}
-                        </UserName>
-                        <UserRole>
-                            {userRole}
-                        </UserRole>
-                    </MenuHead>
-                    <CloseButtonWrapper>
-                            <CloseButton onClick={()=>setUserMenuIsOpen(false)}>
-                                X
-                            </CloseButton>
+                    <MenuHeadWrapper>
+                        <MenuHead>
+                            <UserName>
+                                {userName}
+                            </UserName>
+                            <UserRole>
+                                {userRole}
+                            </UserRole>
+                        </MenuHead>
+                        <CloseButtonWrapper>
+                                <CloseButton onClick={()=>setUserMenuIsOpen(false)}>
+                                    <AiOutlineClose color="#FFF"/>
+                                </CloseButton>
                         </CloseButtonWrapper>
+                    </MenuHeadWrapper>
                     <MenuLinkWrapper>
                         {userRole==="Mentor" ?
                             <>
