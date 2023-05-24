@@ -18,20 +18,19 @@ const UserAdverts = () => {
     };
 
     const {
-         data: adverts = [],
+         data: {userAdverts} = [],
          isLoading,
          isSuccess,
          isError,
          error,
         } = useGetAllUserAdvertsQuery();
 
-    const userAdvertsArray = adverts.userAdverts;
 
     return(
         <ListContainer>
             {isLoading && <PageLoader />}
             {isSuccess &&
-                (userAdvertsArray.length > 0 ? (
+                (userAdverts.length > 0 ? (
                     <AdvertsWrapper>
                         <AdvertsBar>
                             <AdvertsTitle>
@@ -43,7 +42,7 @@ const UserAdverts = () => {
                             </AdvertsRedirect>
                         </AdvertsBar>
                         <List>
-                            {userAdvertsArray.map(({ author, level, technology, price, _id }) => {
+                            {userAdverts.map(({ author, level, technology, price, _id }) => {
                                 return <AdvertCard
                                             key={nanoid()}
                                             idAdvert={_id}

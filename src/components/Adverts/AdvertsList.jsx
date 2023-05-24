@@ -16,14 +16,12 @@ const AdvertsList = () => {
     };
 
     const {
-         data: adverts = [],
+         data: {allAdverts} =[],
          isLoading,
          isSuccess,
          isError,
          error,
         } = useGetAllAdvertsQuery();
-
-    const allAdvertsArray = adverts.allAdverts;
 
     const user = useSelector((state) => state.user);
     const userRole = user.role;
@@ -32,7 +30,7 @@ const AdvertsList = () => {
         <ListContainer>
             {isLoading && <PageLoader />}
             {isSuccess &&
-                (allAdvertsArray.length > 0 ? (
+                (allAdverts.length > 0 ? (
                 <AdvertsWrapper>
                     {userRole === "Mentor"
                     ?<AdvertsBar>
@@ -47,7 +45,7 @@ const AdvertsList = () => {
                     :<></>
                     }
                     <List>
-                        {allAdvertsArray.map(({ author, level, technology,owner, price, _id }) => {
+                        {allAdverts.map(({ author, level, technology,owner, price, _id }) => {
                             return <AdvertCard
                                         key={nanoid()}
                                         idAdvert={_id}
