@@ -3,10 +3,10 @@ import {Title, Hello, Subtitle, WelcomeWrapper, UserNameWrapper} from './Welcome
 import AnimatedTextCharacter from '../../../utils/animatedTextCharacter';
 
 const Welcome =() => {
-    const user = useSelector((state) => state.user);
-    const userName = user.name;
-    const userRole = user.role;
-    const isLoggedIn = user.email;
+    const {role} = useSelector(({user}) => user);
+    const {name} = useSelector(({user}) => user);
+    const {email} = useSelector(({user}) => user);
+    const isLoggedIn = email;
 
     return(
         <WelcomeWrapper>
@@ -18,7 +18,7 @@ const Welcome =() => {
                         </AnimatedTextCharacter>
                         <UserNameWrapper>
                             <AnimatedTextCharacter>
-                                {userName}
+                                {name}
                             </AnimatedTextCharacter>
                             <AnimatedTextCharacter>
                                 ,
@@ -41,7 +41,7 @@ const Welcome =() => {
                 </AnimatedTextCharacter>
             </Title>
             }
-            {userRole === "Mentor" ?
+            {role === "Mentor" ?
             <Subtitle>
                 Create your advert and find new students.
             </Subtitle>

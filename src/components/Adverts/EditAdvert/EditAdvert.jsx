@@ -51,7 +51,7 @@ const EditAdvert = ({
             <CardItemEdited open={open}>
                 <ButtonsWrapper>
                     <CancelButton onClick={()=>setEditAdvertIsOpen(false)}>
-                        <AiOutlineRollback color="#FFF" font-weight="bold"/>
+                        <AiOutlineRollback color="#FFF" fontWeight="bold"/>
                     </CancelButton>
                     <DeleteButton onClick={()=>deleteAdvert(idAdvert)}>
                         <AiOutlineClose color="#FFF"/>

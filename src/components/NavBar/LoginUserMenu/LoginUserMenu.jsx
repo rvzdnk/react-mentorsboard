@@ -35,13 +35,12 @@ export const LoginUserMenu = () => {
     const handleUserMenu = () => {setUserMenuIsOpen(true)};
     const handleNewAdvert = () => {setNewAdvertIsOpen(true)};
 
-    const user = useSelector((state) => state.user);
-    const userRole = user.role;
+    const {role} = useSelector(({user}) => user);
 
     return (
       <>
       <LoginMenuWrapper>
-        {userRole==="Mentor" ?
+        {role==="Mentor" &&
           <>
               <Link onClick={handleMyAdverts} whileHover={{scale: 1.1}}>
                   <AnimatedTextCharacter>
@@ -54,7 +53,7 @@ export const LoginUserMenu = () => {
                 </AnimatedTextCharacter>
               </Link>
           </>
-        :<></>}
+        }
         <Link onClick={logoutUser} whileHover={{scale: 1.1}}>
           <AnimatedTextCharacter>
               Logout

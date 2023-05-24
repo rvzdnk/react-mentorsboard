@@ -23,8 +23,7 @@ const AdvertsList = () => {
          error,
         } = useGetAllAdvertsQuery();
 
-    const user = useSelector((state) => state.user);
-    const userRole = user.role;
+    const {role} = useSelector(({user}) => user);
 
     return(
         <ListContainer>
@@ -32,8 +31,8 @@ const AdvertsList = () => {
             {isSuccess &&
                 (allAdverts.length > 0 ? (
                 <AdvertsWrapper>
-                    {userRole === "Mentor"
-                    ?<AdvertsBar>
+                    {role === "Mentor" &&
+                    <AdvertsBar>
                         <AdvertsTitle>
                             It's all adverts. Choose the best one.
                         </AdvertsTitle>
@@ -42,7 +41,6 @@ const AdvertsList = () => {
                             <TbArrowLeft/>
                         </AdvertsRedirect>
                     </AdvertsBar>
-                    :<></>
                     }
                     <List>
                         {allAdverts.map(({ author, level, technology,owner, price, _id }) => {

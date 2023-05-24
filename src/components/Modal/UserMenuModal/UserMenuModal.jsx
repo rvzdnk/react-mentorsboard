@@ -37,9 +37,8 @@ export const UserMenuModal = ({open,  setUserMenuIsOpen, setNewAdvertIsOpen}) =>
       };
 
 
-    const user = useSelector((state) => state.user);
-    const userRole = user.role;
-    const userName = user.name;
+    const {role} = useSelector(({user}) => user);
+    const {name} = useSelector(({user}) => user);
 
     return (
         <>
@@ -48,10 +47,10 @@ export const UserMenuModal = ({open,  setUserMenuIsOpen, setNewAdvertIsOpen}) =>
                     <MenuHeadWrapper>
                         <MenuHead>
                             <UserName>
-                                {userName}
+                                {name}
                             </UserName>
                             <UserRole>
-                                {userRole}
+                                {role}
                             </UserRole>
                         </MenuHead>
                         <CloseButtonWrapper>
@@ -61,7 +60,7 @@ export const UserMenuModal = ({open,  setUserMenuIsOpen, setNewAdvertIsOpen}) =>
                         </CloseButtonWrapper>
                     </MenuHeadWrapper>
                     <MenuLinkWrapper>
-                        {userRole==="Mentor" ?
+                        {role==="Mentor" &&
                             <>
                                 <MenuLink onClick={switchToMyAdverts}>
                                     My Adverts
@@ -70,7 +69,7 @@ export const UserMenuModal = ({open,  setUserMenuIsOpen, setNewAdvertIsOpen}) =>
                                     Create Advert
                                 </MenuLink>
                             </>
-                        :<></>}
+                        }
                         <MenuLink onClick={logoutUser}>
                             Logout
                         </MenuLink>
