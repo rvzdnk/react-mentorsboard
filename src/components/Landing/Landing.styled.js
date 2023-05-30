@@ -6,4 +6,5 @@ export const Wrapper = styled.div`
 
 export const Container = styled.div`
 	weight: 100vw;
+	height: 100vh;
 `;

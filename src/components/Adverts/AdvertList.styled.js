@@ -1,7 +1,9 @@
 import styled from "styled-components";
+import ReactPaginate from "react-paginate";
 
 export const ListContainer = styled.div`
 	margin: 20px 0 20px 0;
+	height: 100%;
 `;
 
 export const List = styled.ul`
@@ -41,4 +43,26 @@ export const AdvertsRedirect = styled.a`
 	margin: 0 0 10px 0;
 	display: flex;
 	align-items: center;
+`
+
+export const StyledReactPaginate = styled(ReactPaginate)`
+	display: flex;
+	list-style: none;
+	align-items: center;
+	justify-content: space-evenly;
+	> * {
+		margin: 0 4px;
+		text-align: center;
+		cursor: pointer;
+	}
+	> *:not(:first-child):not(:last-child){
+		width: 25px;
+		height: 25px;
+		border: 1px solid;
+		border-radius: 50%;
+	}
+	.active{
+		background-color: grey;
+	}
+
 `

@@ -1,12 +1,13 @@
-import React from "react";
+import React, {useState} from "react";
 import { useDispatch, useSelector } from "react-redux";
 import AdvertCard from "./AdvertCard/AdvertCard";
 import PageLoader from "../PageLoader/PageLoader"
 import { showComponent } from "../../redux/slices/visibilitySlice";
 import { useGetAllAdvertsQuery } from "../../redux/slices/mentorsboardApi";
-import { ListContainer, List, Message, AdvertsWrapper, AdvertsBar, AdvertsTitle, AdvertsRedirect } from "./AdvertList.styled";
+import { ListContainer, List, Message, AdvertsWrapper, AdvertsBar, AdvertsTitle, AdvertsRedirect, StyledReactPaginate } from "./AdvertList.styled";
 import { nanoid } from "@reduxjs/toolkit";
 import { TbArrowLeft } from "react-icons/tb";
+
 
 const AdvertsList = () => {
 
@@ -15,21 +16,28 @@ const AdvertsList = () => {
         dispatch(showComponent());
     };
 
+    const [pageNumber, setPageNumber] = useState(1);
+
     const {
-         data: {allAdverts} =[],
+         data: {allAdverts, totalAdverts, totalPages } =[],
          isLoading,
          isSuccess,
          isError,
          error,
-        } = useGetAllAdvertsQuery();
+        } = useGetAllAdvertsQuery(pageNumber);
 
     const {role} = useSelector(({user}) => user);
+
+    const changePage = (e) => {
+        const newPage = (e.selected + 1);
+        setPageNumber(newPage);
+      };
 
     return(
         <ListContainer>
             {isLoading && <PageLoader />}
             {isSuccess &&
-                (allAdverts.length > 0 ? (
+                (totalAdverts > 0 ? (
                 <AdvertsWrapper>
                     {role === "Mentor" &&
                     <AdvertsBar>
@@ -54,7 +62,17 @@ const AdvertsList = () => {
                                         ownerId={owner}/>
                         })}
                     </List>
+                    <StyledReactPaginate
+                        previousLabel={"Previous"}
+                        nextLabel={"Next"}
+                        pageCount={totalPages}
+                        onPageChange={changePage}
+                        renderOnZeroPageCount={null}
+                        breakLabel="..."
+                        activeClassName={"active"}
+                    />
                 </AdvertsWrapper>
+
             ) : (
                 <Message> No adverts at this moment </Message>
                 ))}

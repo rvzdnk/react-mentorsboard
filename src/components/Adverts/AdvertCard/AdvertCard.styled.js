@@ -36,6 +36,8 @@ export const CardItem = styled.div`
 
 export const CardAuthor = styled.p`
     font-size: 1.2rem;
+    padding: 0 5px;
+    text-align: center;
 `;
 
 export const CardLevel = styled.div`

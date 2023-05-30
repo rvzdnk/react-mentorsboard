@@ -146,7 +146,7 @@ export const NewAdvertModal = ({open, setNewAdvertIsOpen }) => {
                                     id="price"
                                     name="price"
                                     aria-valuetext="Price"
-                                    value={values.price}
+                                    value={Number(values.price)}
                                     onChange={handleChange}
                                     error={touched.price && Boolean(errors.price)}
                                     helpertext={touched.price && errors.price}

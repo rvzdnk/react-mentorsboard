@@ -38,7 +38,7 @@ export const mentorsboardApi = createApi({
       invalidatesTags: ["User"],
     }),
     getAllAdverts: builder.query({
-      query: () => "/adverts",
+      query: (pageNumber) => `/adverts?page=${pageNumber}`,
       providesTags: ["Adverts"],
     }),
     createAdvert: builder.mutation({

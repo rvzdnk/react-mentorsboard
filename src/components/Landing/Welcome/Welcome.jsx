@@ -5,8 +5,7 @@ import AnimatedTextCharacter from '../../../utils/animatedTextCharacter';
 const Welcome =() => {
     const {role} = useSelector(({user}) => user);
     const {name} = useSelector(({user}) => user);
-    const {email} = useSelector(({user}) => user);
-    const isLoggedIn = email;
+    const {isLoggedIn} = useSelector(({user}) => user.email);
 
     return(
         <WelcomeWrapper>
