@@ -28,6 +28,9 @@ export const store = configureStore({
       serializableCheck: {
         ignoredActions: [PERSIST],
       },
+      immutableCheck:{
+        ignoredActions: [PERSIST]
+      },
     }).concat(mentorsboardApi.middleware),
   devTools: false,
 });

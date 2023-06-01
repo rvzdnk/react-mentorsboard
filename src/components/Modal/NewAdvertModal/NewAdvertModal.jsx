@@ -140,7 +140,7 @@ export const NewAdvertModal = ({open, setNewAdvertIsOpen }) => {
                             <FormControl>
                                 <InputTitle id="non-linear-slider" gutterBottom
                                 sx={{ color: '#fff'}}>
-                                    Price: {values.price}$/h
+                                    Price: {Number(values.price)}$/h
                                 </InputTitle>
                                 <SliderInput
                                     id="price"

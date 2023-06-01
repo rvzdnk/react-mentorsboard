@@ -50,6 +50,7 @@ export const StyledReactPaginate = styled(ReactPaginate)`
 	list-style: none;
 	align-items: center;
 	justify-content: space-evenly;
+	margin: 20px 0 20px 0;
 	> * {
 		margin: 0 4px;
 		text-align: center;

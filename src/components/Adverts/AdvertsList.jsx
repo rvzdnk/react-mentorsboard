@@ -33,6 +33,8 @@ const AdvertsList = () => {
         setPageNumber(newPage);
       };
 
+console.log(pageNumber);
+
     return(
         <ListContainer>
             {isLoading && <PageLoader />}
